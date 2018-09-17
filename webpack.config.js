@@ -14,7 +14,7 @@ const paths = {
 
 const common = {
   entry: {
-    main: paths.SRC,
+    main: ['@babel/polyfill', paths.SRC],
   },
   output: {
     path: paths.DEST,
@@ -23,17 +23,17 @@ const common = {
     chunkFilename: '[name].[chunkhash:8].js',
   },
   module: {
-    rules: [{
-      test: /\.jsx?$/,
-      exclude: /node_modules/,
-      use: 'babel-loader',
-    }, {
-      test: /\.css$/,
-      use: [
-        MiniCssExtractPlugin.loader,
-        'css-loader',
-      ],
-    }],
+    rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: 'babel-loader',
+      },
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+    ],
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -52,10 +52,7 @@ const development = {
     inline: true,
     stats: 'errors-only',
   },
-  plugins: [
-    new webpack.LoaderOptionsPlugin({ debug: true }),
-    new webpack.NamedModulesPlugin(),
-  ],
+  plugins: [new webpack.LoaderOptionsPlugin({ debug: true }), new webpack.NamedModulesPlugin()],
   devtool: 'cheap-module-source-map',
 }
 
