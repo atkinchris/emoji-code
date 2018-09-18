@@ -34,10 +34,12 @@ body,
 
 .flex {
   display: flex;
+  flex-direction: column;
 }
 
 .textarea {
   width: 100%;
   min-height: 25rem;
   resize: none;
+  margin-bottom: 1rem;
 }

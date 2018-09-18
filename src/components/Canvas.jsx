@@ -1,5 +1,10 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-const Canvas = () => <div>Canvas!</div>
+const Canvas = ({ tokens }) => <pre>{JSON.stringify(tokens, null, '  ')}</pre>
+
+Canvas.propTypes = {
+  tokens: PropTypes.arrayOf(PropTypes.object).isRequired,
+}
 
 export default Canvas
