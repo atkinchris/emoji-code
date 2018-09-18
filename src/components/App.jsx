@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import Canvas from './Canvas'
 import Editor from './Editor'
 import tokenise from '../utils/tokenise'
+import exampleSketch from '../utils/exampleSketch'
 
 class App extends Component {
   constructor(props) {
@@ -28,7 +29,7 @@ class App extends Component {
           <Editor onSubmit={this.updateTokens} />
         </div>
         <div className="container__pane padded-card">
-          <Canvas tokens={tokens} />
+          <Canvas tokens={tokens} sketch={exampleSketch} />
         </div>
       </div>
     )
