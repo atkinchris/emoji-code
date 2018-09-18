@@ -1,0 +1,48 @@
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.container__pane {
+  flex: 1;
+}
+
+.padded-card {
+  padding: 1rem;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 25rem;
+  resize: none;
+  margin-bottom: 1rem;
+}
+
+
+/*# sourceMappingURL=main.css.map*/
