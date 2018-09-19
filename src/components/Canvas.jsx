@@ -11,10 +11,6 @@ class Canvas extends Component {
     this.updateSketch = this.updateSketch.bind(this)
   }
 
-  componentDidMount() {
-    this.updateSketch()
-  }
-
   componentDidUpdate(prevProps) {
     const { sketch } = this.props
 
@@ -27,11 +23,19 @@ class Canvas extends Component {
     const { sketch } = this.props
     const wrapper = this.wrapper.current
 
-    if (wrapper.childNodes[0]) {
-      wrapper.removeChild(wrapper.childNodes[0])
+    while (wrapper.firstChild) {
+      wrapper.removeChild(wrapper.firstChild)
     }
 
-    this.canvas = new P5(sketch, wrapper)
+    const fullSketch = p => {
+      // eslint-disable-next-line no-param-reassign
+      p.setup = () => {
+        p.createCanvas(400, 400)
+        sketch(p)
+      }
+    }
+
+    this.canvas = new P5(fullSketch, wrapper)
   }
 
   render() {

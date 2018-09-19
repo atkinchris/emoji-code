@@ -3,7 +3,10 @@ import React, { Component } from 'react'
 import Canvas from './Canvas'
 import Editor from './Editor'
 import tokenise from '../utils/tokenise'
-import exampleSketch from '../utils/exampleSketch'
+import compose from '../utils/compose'
+import mapFuncs from '../utils/mapFuncs'
+
+import library from '../library'
 
 class App extends Component {
   constructor(props) {
@@ -22,6 +25,8 @@ class App extends Component {
 
   render() {
     const { tokens } = this.state
+    const functions = mapFuncs(tokens, library)
+    const sketch = compose(functions)
 
     return (
       <div className="container">
@@ -29,7 +34,7 @@ class App extends Component {
           <Editor onSubmit={this.updateTokens} />
         </div>
         <div className="container__pane padded-card">
-          <Canvas tokens={tokens} sketch={exampleSketch} />
+          <Canvas tokens={tokens} sketch={sketch} />
         </div>
       </div>
     )
