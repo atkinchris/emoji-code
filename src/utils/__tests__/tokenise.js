@@ -9,8 +9,8 @@ describe('tokenise', () => {
     const tokens = tokenise(text)
 
     expect(tokens).toEqual([
-      { command: 'circle', arguments: ['10', '10', 'purple', '5'] },
-      { command: 'square', arguments: ['15', '-4', 'red', '2.5', '2.5'] },
+      { command: 'circle', args: ['10', '10', 'purple', '5'] },
+      { command: 'square', args: ['15', '-4', 'red', '2.5', '2.5'] },
     ])
   })
 
@@ -26,8 +26,8 @@ describe('tokenise', () => {
     const tokens = tokenise(text)
 
     expect(tokens).toEqual([
-      { command: 'circle', arguments: ['10', '10', 'purple', '5'] },
-      { command: 'square', arguments: ['15', '-4', 'red', '2.5', '2.5'] },
+      { command: 'circle', args: ['10', '10', 'purple', '5'] },
+      { command: 'square', args: ['15', '-4', 'red', '2.5', '2.5'] },
     ])
   })
 
@@ -39,8 +39,8 @@ describe('tokenise', () => {
     const tokens = tokenise(text)
 
     expect(tokens).toEqual([
-      { command: 'circle', arguments: ['10', '10', 'purple', '5'] },
-      { command: 'square', arguments: ['15', '-4', 'red', '2.5', '2.5'] },
+      { command: 'circle', args: ['10', '10', 'purple', '5'] },
+      { command: 'square', args: ['15', '-4', 'red', '2.5', '2.5'] },
     ])
   })
 })

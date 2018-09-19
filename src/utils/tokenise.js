@@ -14,7 +14,7 @@ const tokenise = text =>
 
       return {
         command: groups[1],
-        arguments: groups[2]
+        args: groups[2]
           .split(',')
           .map(arg => arg.trim())
           .filter(_ => _),
