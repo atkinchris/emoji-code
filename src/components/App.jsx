@@ -30,10 +30,18 @@ class App extends Component {
 
     return (
       <div className="container">
-        <div className="container__pane padded-card">
-          <Editor onSubmit={this.updateTokens} />
+        <header className="container__row">
+          <h1>Emoji Code!!</h1>
+        </header>
+
+        <div className="container__pane padded-card flex-card">
+          <Editor
+            onUpdate={this.updateTokens}
+            className="flex-card__item"
+          />
         </div>
-        <div className="container__pane padded-card">
+
+        <div className="container__pane padded-card flex-card">
           <Canvas tokens={tokens} sketch={sketch} />
         </div>
       </div>

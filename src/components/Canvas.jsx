@@ -31,6 +31,8 @@ class Canvas extends Component {
       // eslint-disable-next-line no-param-reassign
       p.setup = () => {
         p.createCanvas(400, 400)
+        p.pixelDensity(4)
+        console.log(p.displayWidth)
         sketch(p)
       }
     }
@@ -39,7 +41,10 @@ class Canvas extends Component {
   }
 
   render() {
-    return <div ref={this.wrapper} />
+    return <div
+      ref={this.wrapper}
+      className="emoji"
+    />
   }
 }
 
