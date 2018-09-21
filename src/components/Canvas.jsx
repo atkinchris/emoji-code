@@ -31,6 +31,7 @@ class Canvas extends Component {
       // eslint-disable-next-line no-param-reassign
       p.setup = () => {
         p.createCanvas(400, 400)
+        p.pixelDensity(4)
         sketch(p)
       }
     }
