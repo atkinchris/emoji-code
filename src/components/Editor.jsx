@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import AceEditor from 'react-ace'
 
 const EXAMPLE_CODE = `circle(200, 200, 300, #ffde7d)
 circle(160, 200, 15, #00b8a9)
@@ -17,22 +18,23 @@ class Editor extends Component {
     }
 
     this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleUpdate = this.handleUpdate.bind(this)
   }
 
   componentDidMount() {
-    this.handleSubmit()
+    this.handleUpdate()
   }
 
-  handleChange(event) {
-    this.setState({ value: event.target.value })
+  handleChange(value) {
+    this.setState({ value })
+    this.handleUpdate()
   }
 
-  handleSubmit() {
+  handleUpdate() {
     const { value } = this.state
-    const { onSubmit } = this.props
+    const { onUpdate } = this.props
 
-    onSubmit(value)
+    onUpdate(value)
   }
 
   render() {
@@ -40,17 +42,30 @@ class Editor extends Component {
 
     return (
       <div className="flex">
-        <textarea className="textarea" value={value} onChange={this.handleChange} />
-        <button type="submit" onClick={this.handleSubmit}>
-          Run!
-        </button>
+        <AceEditor
+          className="c-editor"
+          mode="javascript"
+          theme="github"
+          onChange={this.handleChange}
+          fontSize={14}
+          value={value}
+          showGutter
+          highlightActiveLine
+          showLineNumbers
+          showPrintMargin={false}
+          tabSize={2}
+          annotations={
+            [{ row: 0, column: 0, type: 'error', text: 'Some error.' }]
+          }
+          width="100%"
+        />
       </div>
     )
   }
 }
 
 Editor.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
+  onUpdate: PropTypes.func.isRequired,
 }
 
 export default Editor

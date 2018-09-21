@@ -31,7 +31,7 @@ class App extends Component {
     return (
       <div className="container">
         <div className="container__pane padded-card">
-          <Editor onSubmit={this.updateTokens} />
+          <Editor onUpdate={this.updateTokens} />
         </div>
         <div className="container__pane padded-card">
           <Canvas tokens={tokens} sketch={sketch} />
