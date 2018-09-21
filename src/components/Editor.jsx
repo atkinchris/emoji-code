@@ -39,15 +39,20 @@ class Editor extends Component {
 
   render() {
     const { value } = this.state
+    const { className } = this.props
 
     return (
-      <div className="flex">
+      <div className={`editor ${className}`}>
+        <header className="editor__header">
+          Preset buttons go here
+        </header>
+
         <AceEditor
-          className="c-editor"
+          className="editor__area"
+          width="100%"
           mode="javascript"
           theme="github"
           onChange={this.handleChange}
-          fontSize={14}
           value={value}
           showGutter
           highlightActiveLine
@@ -57,7 +62,6 @@ class Editor extends Component {
           annotations={
             [{ row: 0, column: 0, type: 'error', text: 'Some error.' }]
           }
-          width="100%"
         />
       </div>
     )
@@ -66,6 +70,11 @@ class Editor extends Component {
 
 Editor.propTypes = {
   onUpdate: PropTypes.func.isRequired,
+  className: PropTypes.string,
+}
+
+Editor.defaultProps = {
+  className: null,
 }
 
 export default Editor
