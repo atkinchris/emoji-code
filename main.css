@@ -12,7 +12,8 @@ html {
 
 body,
 #root {
-  background: #eee;
+  font-family: sans-serif;
+  background: #efecec;
   margin: 0;
   padding: 0;
   height: 100%;
@@ -61,7 +62,6 @@ body,
 .editor {
   display: flex;
   flex-direction: column;
-  border: 1px solid #ccc;
   border-radius: 1rem;
   background: white;
   padding: 1rem;
@@ -91,7 +91,6 @@ body,
   padding: 3rem;
   background: white;
   border-radius: 100%;
-  border: 1px solid #ccc;
   margin: 0 auto;
 }
 
@@ -100,6 +99,22 @@ body,
   font-weight: normal;
   text-align: center;
   color: #ccc;
+}
+
+.credits {
+  color: #aaa;
+  text-align: center;
+}
+
+.credits a:link,
+.credits a:visited,
+.credits a:hover,
+.credits a:active {
+  color: #5c5757;
+}
+
+.with-border {
+  border: 1px solid #5c5757;
 }
 
 
