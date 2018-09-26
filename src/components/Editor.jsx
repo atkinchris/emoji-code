@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import AceEditor from 'react-ace'
 
+import 'brace/mode/css'
+import 'brace/theme/textmate'
+
 const EXAMPLE_CODE = `circle(200, 200, 300, #ffde7d)
 circle(160, 200, 15, #00b8a9)
 circle(210, 200, 15, #00b8a9)
@@ -43,25 +46,22 @@ class Editor extends Component {
 
     return (
       <div className={`editor ${className}`}>
-        <header className="editor__header">
-          Preset buttons go here
-        </header>
+        <header className="editor__header">Preset buttons go here</header>
 
         <AceEditor
           className="editor__area"
           width="100%"
-          mode="javascript"
-          theme="github"
+          mode="css"
+          theme="textmate"
           onChange={this.handleChange}
           value={value}
-          showGutter
+          fontSize={16}
+          showGutter={false}
           highlightActiveLine
           showLineNumbers
           showPrintMargin={false}
           tabSize={2}
-          annotations={
-            [{ row: 0, column: 0, type: 'error', text: 'Some error.' }]
-          }
+          annotations={[{ row: 0, column: 0, type: 'error', text: 'Some error.' }]}
         />
       </div>
     )
