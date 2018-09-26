@@ -6,10 +6,9 @@ import 'brace/mode/css'
 import 'brace/theme/textmate'
 
 const EXAMPLE_CODE = `circle(50, 50, 50, #ffde7d)
-circle(35, 35, 4, #00b8a9)
-circle(65, 35, 4, #00b8a9)
-semicircle(45, 55, 3, #f6416c)
-rectangle(165, 210, 40, 20, #ffde7d)
+circle(35, 35, 5, #00b8a9)
+circle(65, 35, 5, #00b8a9)
+semicircle(50, 60, 15, #f6416c)
 `
 
 class Editor extends Component {
