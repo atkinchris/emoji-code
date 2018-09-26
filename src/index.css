@@ -12,6 +12,7 @@ html {
 
 body,
 #root {
+  background: #eee;
   margin: 0;
   padding: 0;
   height: 100%;
@@ -36,7 +37,7 @@ body,
 }
 
 .padded-card {
-  padding: 1rem;
+  padding: 2rem;
 }
 
 .flex-card {
@@ -71,9 +72,10 @@ body,
 }
 
 .editor__area.ace_editor {
-  border: 1px solid #000;
+  border: 1px solid #ccc;
   font-size: 1em;
   line-height: 1.5;
+  border-radius: 1rem;
 }
 
 .editor__error-marker {
@@ -82,8 +84,18 @@ body,
   opacity: 0.3;
 }
 
-/* this rule is really ugly, but i can't seem to find a way to override p5? */
-.emoji canvas {
-  width: 100% !important;
-  height: auto !important;
+.emoji {
+  max-width: 600px;
+  padding: 3rem;
+  background: white;
+  border-radius: 100%;
+  border: 1px solid #ccc;
+  margin: 0 auto;
+}
+
+.logo {
+  font-family: 'Fredoka One', cursive;
+  font-weight: normal;
+  text-align: center;
+  color: #ccc;
 }

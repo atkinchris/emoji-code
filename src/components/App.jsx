@@ -30,10 +30,6 @@ class App extends Component {
 
     return (
       <div className="container">
-        <header className="container__row">
-          <h1>Emoji Code!!</h1>
-        </header>
-
         <div className="container__pane padded-card flex-card">
           <Editor onUpdate={this.updateCommands} errors={allErrors} className="flex-card__item" />
         </div>
@@ -41,6 +37,10 @@ class App extends Component {
         <div className="container__pane padded-card flex-card">
           <Canvas components={components} />
         </div>
+
+        <header className="container__row">
+          <h1 className="logo">Emoji Code!</h1>
+        </header>
       </div>
     )
   }

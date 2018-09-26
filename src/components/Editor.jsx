@@ -53,7 +53,7 @@ class Editor extends Component {
 
     return (
       <div className={`editor ${className}`}>
-        <header className="editor__header">Preset buttons go here</header>
+        {/* <header className="editor__header">Preset buttons go here</header> */}
 
         <AceEditor
           className="editor__area"
@@ -62,7 +62,7 @@ class Editor extends Component {
           theme="textmate"
           onChange={this.handleChange}
           value={value}
-          fontSize={16}
+          fontSize={18}
           showGutter={false}
           highlightActiveLine
           showLineNumbers
