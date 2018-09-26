@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import Canvas from './Canvas'
 import Editor from './Editor'
 import evaluate from '../utils/evaluate'
-import compose from '../utils/compose'
 import mapFuncs from '../utils/mapFuncs'
 
 import library from '../library'
@@ -26,8 +25,8 @@ class App extends Component {
 
   render() {
     const { commands, errors } = this.state
-    const functions = mapFuncs(commands, library)
-    const sketch = compose(functions)
+    const { components, errors: cmdErrors } = mapFuncs(commands, library)
+    const allErrors = [...errors, ...cmdErrors]
 
     return (
       <div className="container">
@@ -36,11 +35,11 @@ class App extends Component {
         </header>
 
         <div className="container__pane padded-card flex-card">
-          <Editor onUpdate={this.updateCommands} errors={errors} className="flex-card__item" />
+          <Editor onUpdate={this.updateCommands} errors={allErrors} className="flex-card__item" />
         </div>
 
         <div className="container__pane padded-card flex-card">
-          <Canvas sketch={sketch} />
+          <Canvas components={components} />
         </div>
       </div>
     )

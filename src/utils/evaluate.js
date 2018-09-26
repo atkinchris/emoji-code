@@ -20,6 +20,7 @@ const evaluate = text => {
       }
 
       commands.push({
+        lineNumber,
         command: groups[1],
         args: groups[2]
           .split(',')

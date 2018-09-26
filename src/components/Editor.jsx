@@ -5,10 +5,10 @@ import AceEditor from 'react-ace'
 import 'brace/mode/css'
 import 'brace/theme/textmate'
 
-const EXAMPLE_CODE = `circle(200, 200, 300, #ffde7d)
-circle(160, 200, 15, #00b8a9)
-circle(210, 200, 15, #00b8a9)
-circle(185, 230, 30, #f6416c)
+const EXAMPLE_CODE = `circle(50, 50, 50, #ffde7d)
+circle(35, 35, 4, #00b8a9)
+circle(65, 35, 4, #00b8a9)
+semicircle(45, 55, 3, #f6416c)
 rectangle(165, 210, 40, 20, #ffde7d)
 `
 
