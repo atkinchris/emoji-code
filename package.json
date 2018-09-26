@@ -1,4 +1,6 @@
 {
+  "name": "emoji-code",
+  "license": "UNLICENSED",
   "scripts": {
     "start": "webpack-dev-server",
     "build": "NODE_ENV=production webpack",
