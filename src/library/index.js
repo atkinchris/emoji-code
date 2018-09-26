@@ -1,19 +1,25 @@
 import circle from './circle'
 import eye from './eye'
+import eyeWinking from './eyeWinking'
 import heart from './heart'
+import mouth from './mouth'
 import mouthBlowing from './mouthBlowing'
+import mouthLaughing from './mouthLaughing'
 import rectangle from './rectangle'
 import semicircle from './semicircle'
 import sparkle from './sparkle'
-import wink from './wink'
+import tear from './tear'
 
 export default {
   circle,
   eye,
+  eyeWinking,
   heart,
+  mouth,
   mouthBlowing,
+  mouthLaughing,
   rectangle,
   semicircle,
   sparkle,
-  wink,
+  tear,
 }

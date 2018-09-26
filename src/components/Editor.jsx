@@ -7,7 +7,7 @@ import 'brace/theme/textmate'
 
 const EXAMPLE_CODE = `circle(50, 50, 45, #ffdd67)
 eye(30, 35)
-wink(55, 37)
+eyeWinking(55, 37)
 mouthBlowing(45, 55)
 heart(58, 58)
 sparkle(8, 8, 0.8)

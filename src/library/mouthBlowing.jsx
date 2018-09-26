@@ -1,6 +1,6 @@
 import React from 'react'
 
-const MouthBlowing = (x, y, scale, colour = '#664e27') => (
+const MouthBlowing = (x, y, colour = '#664e27') => (
   <svg x={x} y={y}>
     <path
       fill={colour}

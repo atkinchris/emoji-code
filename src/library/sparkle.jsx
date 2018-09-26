@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Sparkle = (x, y, scaleStr = 1) => {
+const Sparkle = (x = 0, y = 0, scaleStr = 1) => {
   const scale = parseFloat(scaleStr) / 2
 
   return (
