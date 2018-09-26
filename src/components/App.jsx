@@ -14,6 +14,7 @@ class App extends Component {
 
     this.state = {
       commands: [],
+      errors: [],
     }
 
     this.updateCommands = this.updateCommands.bind(this)
@@ -24,7 +25,7 @@ class App extends Component {
   }
 
   render() {
-    const { commands } = this.state
+    const { commands, errors } = this.state
     const functions = mapFuncs(commands, library)
     const sketch = compose(functions)
 
@@ -35,7 +36,7 @@ class App extends Component {
         </header>
 
         <div className="container__pane padded-card flex-card">
-          <Editor onUpdate={this.updateCommands} className="flex-card__item" />
+          <Editor onUpdate={this.updateCommands} errors={errors} className="flex-card__item" />
         </div>
 
         <div className="container__pane padded-card flex-card">

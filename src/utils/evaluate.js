@@ -15,7 +15,7 @@ const evaluate = text => {
       const groups = command.match(regex)
 
       if (groups === null) {
-        errors.push(lineNumber)
+        errors.push({ lineNumber })
         return
       }
 

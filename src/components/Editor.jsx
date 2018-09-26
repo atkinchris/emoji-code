@@ -42,7 +42,15 @@ class Editor extends Component {
 
   render() {
     const { value } = this.state
-    const { className } = this.props
+    const { className, errors } = this.props
+    const markers = errors.map(error => ({
+      startRow: error.lineNumber,
+      endRow: error.lineNumber,
+      startCol: 0,
+      endCol: Number.MAX_SAFE_INTEGER,
+      className: 'editor__error-marker',
+      type: 'background',
+    }))
 
     return (
       <div className={`editor ${className}`}>
@@ -61,7 +69,7 @@ class Editor extends Component {
           showLineNumbers
           showPrintMargin={false}
           tabSize={2}
-          annotations={[{ row: 0, column: 0, type: 'error', text: 'Some error.' }]}
+          markers={markers}
         />
       </div>
     )
@@ -71,6 +79,7 @@ class Editor extends Component {
 Editor.propTypes = {
   onUpdate: PropTypes.func.isRequired,
   className: PropTypes.string,
+  errors: PropTypes.arrayOf(PropTypes.shape({ lineNumber: PropTypes.number })).isRequired,
 }
 
 Editor.defaultProps = {

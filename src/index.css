@@ -76,6 +76,12 @@ body,
   line-height: 1.5;
 }
 
+.editor__error-marker {
+  position: absolute;
+  background: red;
+  opacity: 0.3;
+}
+
 /* this rule is really ugly, but i can't seem to find a way to override p5? */
 .emoji canvas {
   width: 100% !important;
