@@ -54,7 +54,7 @@ class Editor extends Component {
     }))
 
     return (
-      <div className={`editor ${className}`}>
+      <div className={`editor with-border ${className}`}>
         {/* <header className="editor__header">Preset buttons go here</header> */}
 
         <AceEditor
