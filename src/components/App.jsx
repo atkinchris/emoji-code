@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import Canvas from './Canvas'
 import Editor from './Editor'
-import tokenise from '../utils/tokenise'
+import evaluate from '../utils/evaluate'
 import compose from '../utils/compose'
 import mapFuncs from '../utils/mapFuncs'
 
@@ -13,19 +13,19 @@ class App extends Component {
     super(props)
 
     this.state = {
-      tokens: [],
+      commands: [],
     }
 
-    this.updateTokens = this.updateTokens.bind(this)
+    this.updateCommands = this.updateCommands.bind(this)
   }
 
-  updateTokens(text) {
-    this.setState({ tokens: tokenise(text) })
+  updateCommands(text) {
+    this.setState(evaluate(text))
   }
 
   render() {
-    const { tokens } = this.state
-    const functions = mapFuncs(tokens, library)
+    const { commands } = this.state
+    const functions = mapFuncs(commands, library)
     const sketch = compose(functions)
 
     return (
@@ -35,14 +35,11 @@ class App extends Component {
         </header>
 
         <div className="container__pane padded-card flex-card">
-          <Editor
-            onUpdate={this.updateTokens}
-            className="flex-card__item"
-          />
+          <Editor onUpdate={this.updateCommands} className="flex-card__item" />
         </div>
 
         <div className="container__pane padded-card flex-card">
-          <Canvas tokens={tokens} sketch={sketch} />
+          <Canvas sketch={sketch} />
         </div>
       </div>
     )

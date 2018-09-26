@@ -1,14 +1,14 @@
-import tokenise from '../tokenise'
+import evaluate from '../evaluate'
 
-describe('tokenise', () => {
-  it('returns an array of tokens for the text', () => {
+describe('evaluate', () => {
+  it('returns an array of commands for the text', () => {
     const text = `
       circle(10, 10, purple, 5)
       square(15, -4, red, 2.5, 2.5)
     `
-    const tokens = tokenise(text)
+    const { commands } = evaluate(text)
 
-    expect(tokens).toEqual([
+    expect(commands).toEqual([
       { command: 'circle', args: ['10', '10', 'purple', '5'] },
       { command: 'square', args: ['15', '-4', 'red', '2.5', '2.5'] },
     ])
@@ -23,9 +23,9 @@ describe('tokenise', () => {
 
         square(15, -4, red, 2.5, 2.5)
     `
-    const tokens = tokenise(text)
+    const { commands } = evaluate(text)
 
-    expect(tokens).toEqual([
+    expect(commands).toEqual([
       { command: 'circle', args: ['10', '10', 'purple', '5'] },
       { command: 'square', args: ['15', '-4', 'red', '2.5', '2.5'] },
     ])
@@ -36,9 +36,9 @@ describe('tokenise', () => {
       circle(10,       10 , purple, 5)
       square  ( 15,   -4, red , 2.5  , 2.5  )
     `
-    const tokens = tokenise(text)
+    const { commands } = evaluate(text)
 
-    expect(tokens).toEqual([
+    expect(commands).toEqual([
       { command: 'circle', args: ['10', '10', 'purple', '5'] },
       { command: 'square', args: ['15', '-4', 'red', '2.5', '2.5'] },
     ])
