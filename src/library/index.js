@@ -3,6 +3,7 @@ import eye from './eye'
 import eyeWinking from './eyeWinking'
 import heart from './heart'
 import mouth from './mouth'
+import mouthBarfing from './mouthBarfing'
 import mouthBlowing from './mouthBlowing'
 import mouthLaughing from './mouthLaughing'
 import poop from './poop'
@@ -17,6 +18,7 @@ export default {
   eyeWinking,
   heart,
   mouth,
+  mouthBarfing,
   mouthBlowing,
   mouthLaughing,
   poop,
