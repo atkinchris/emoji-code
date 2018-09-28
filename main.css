@@ -48,6 +48,10 @@ body,
   justify-content: center;
 }
 
+.flex-card--align-center {
+  align-items: center;
+}
+
 .flex-card__item {
   flex-grow: 1;
 }
@@ -115,6 +119,19 @@ body,
 
 .with-border {
   border: 1px solid #5c5757;
+}
+
+.button {
+  margin-top: 2rem;
+  font-size: 2rem;
+  border-radius: 2rem;
+  padding: 0.5rem 2.5rem;
+}
+
+.button:hover,
+.button:focus {
+  color: white;
+  background-color: #f46767;
 }
 
 
