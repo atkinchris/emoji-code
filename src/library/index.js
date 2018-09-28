@@ -5,6 +5,7 @@ import heart from './heart'
 import mouth from './mouth'
 import mouthBlowing from './mouthBlowing'
 import mouthLaughing from './mouthLaughing'
+import poop from './poop'
 import rectangle from './rectangle'
 import semicircle from './semicircle'
 import sparkle from './sparkle'
@@ -18,6 +19,7 @@ export default {
   mouth,
   mouthBlowing,
   mouthLaughing,
+  poop,
   rectangle,
   semicircle,
   sparkle,
