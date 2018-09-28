@@ -1,6 +1,6 @@
 import React from 'react'
 
-const MouthBarfing = (x = 0, y = 0) => (
+const MouthBarfing = (x = 0, y = 0, colour = '#664e27') => (
   <svg x={x} y={y}>
     <rect width="100%" height="100%" fill="none" />
     <radialGradient
@@ -62,7 +62,7 @@ const MouthBarfing = (x = 0, y = 0) => (
         d="M43.506 22.944c0 4.073-43.506 4.073-43.506 0 0-4.071 43.506-4.071 43.506 0z"
       />
       <path
-        fill="#302C3B"
+        fill={colour}
         d="M21.803 0C15.4 0 2.644 1.844 6.524 11c3.903 9.209 26.657 9.209 30.561 0 3.879-9.156-8.876-11-15.282-11z"
       />
       <path
@@ -88,5 +88,7 @@ const MouthBarfing = (x = 0, y = 0) => (
     </g>
   </svg>
 )
+
+MouthBarfing.args = ['x', 'y', 'colour']
 
 export default MouthBarfing
