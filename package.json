@@ -41,6 +41,7 @@
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-ace": "^6.1.4",
-    "react-dom": "^16.4.1"
+    "react-dom": "^16.4.1",
+    "save-svg-as-png": "^1.4.6"
   }
 }
