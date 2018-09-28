@@ -18,4 +18,6 @@ const MouthLaughing = (x = 0, y = 0) => (
   </svg>
 )
 
+MouthLaughing.args = ['x', 'y']
+
 export default MouthLaughing

@@ -9,4 +9,6 @@ const Mouth = (x, y, colour = '#664e27') => (
   </svg>
 )
 
+Mouth.args = ['x', 'y', 'colour']
+
 export default Mouth

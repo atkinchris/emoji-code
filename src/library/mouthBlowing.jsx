@@ -9,4 +9,6 @@ const MouthBlowing = (x, y, colour = '#664e27') => (
   </svg>
 )
 
+MouthBlowing.args = ['x', 'y', 'colour']
+
 export default MouthBlowing

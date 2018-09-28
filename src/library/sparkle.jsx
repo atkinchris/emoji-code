@@ -19,4 +19,6 @@ const Sparkle = (x = 0, y = 0, scaleStr = 1) => {
   )
 }
 
+Sparkle.args = ['x', 'y', 'scale']
+
 export default Sparkle
