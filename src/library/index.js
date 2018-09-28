@@ -11,6 +11,7 @@ import rectangle from './rectangle'
 import semicircle from './semicircle'
 import sparkle from './sparkle'
 import tear from './tear'
+import unicornHorn from './unicornHorn'
 
 export default {
   circle,
@@ -26,4 +27,5 @@ export default {
   semicircle,
   sparkle,
   tear,
+  unicornHorn,
 }
