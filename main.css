@@ -134,5 +134,35 @@ body,
   background-color: #f46767;
 }
 
+.library {
+  background: white;
+  padding: 1rem;
+}
+
+.library td {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.library__preview {
+  height: 50px;
+  width: 50px;
+}
+
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  background: #efecec;
+  padding: 4rem;
+}
+
+.align-center {
+  text-align: center;
+}
+
 
 /*# sourceMappingURL=main.css.map*/
