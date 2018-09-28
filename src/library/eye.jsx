@@ -6,4 +6,10 @@ const Eye = (x, y, colour = '#664e27') => (
   </svg>
 )
 
+Eye.args = ['x', 'y', 'colour']
+
+Eye.previewStyle = {
+  width: '50px',
+}
+
 export default Eye
