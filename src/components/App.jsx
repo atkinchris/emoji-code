@@ -3,10 +3,12 @@ import React, { Component } from 'react'
 import Canvas from './Canvas'
 import Editor from './Editor'
 import Library from './Library'
+import Modal from './Modal'
 
 import evaluate from '../utils/evaluate'
 import mapFuncs from '../utils/mapFuncs'
 import postEmojiToServer from '../utils/postEmojiToServer'
+import getSvgBlob from '../utils/getSvgBlob'
 
 import functionLibrary from '../library'
 
@@ -20,13 +22,16 @@ class App extends Component {
       showLibrary: false,
     }
 
+    this.svgElement = React.createRef()
+
     this.onEmojiSubmit = this.onEmojiSubmit.bind(this)
     this.updateCommands = this.updateCommands.bind(this)
     this.showLibrary = this.showLibrary.bind(this)
   }
 
-  async onEmojiSubmit(dataUri) {
-    await postEmojiToServer(dataUri)
+  async onEmojiSubmit() {
+    const blob = await getSvgBlob(this.svgElement.current)
+    await postEmojiToServer(blob)
 
     this.setState({
       saved: true, // eslint-disable-line react/no-unused-state
@@ -48,30 +53,29 @@ class App extends Component {
 
     return (
       <div className="container">
-        <header className="container__row">
-          <h1 className="logo">Emoji Code!</h1>
-        </header>
+        <div className="container__pane padded-card flex-card">
+          <Canvas components={components} ref={this.svgElement} />
+
+          <div className="button-group">
+            <button type="button" className="button" onClick={this.saveEmoji}>
+              Save Emoji
+            </button>
+            <button type="button" className="button" onClick={this.showLibrary}>
+              Show Library
+            </button>
+            <Modal isOpen={showLibrary}>
+              <div className="modal flex-card flex-card--align-center">
+                <Library />
+                <button type="button" className="button" onClick={this.showLibrary}>
+                  Hide Library
+                </button>
+              </div>
+            </Modal>
+          </div>
+        </div>
 
         <div className="container__pane padded-card flex-card">
           <Editor onUpdate={this.updateCommands} errors={allErrors} className="flex-card__item" />
-        </div>
-
-        <div className="container__pane padded-card flex-card">
-          <Canvas components={components} onEmojiSubmit={this.onEmojiSubmit} />
-        </div>
-
-        <div className="container__row align-center">
-          <button type="button" className="button" onClick={this.showLibrary}>
-            Show Library
-          </button>
-          {showLibrary && (
-            <div className="modal flex-card flex-card--align-center">
-              <Library />
-              <button type="button" className="button" onClick={this.showLibrary}>
-                Hide Library
-              </button>
-            </div>
-          )}
         </div>
       </div>
     )
