@@ -11,4 +11,6 @@ const MouthBlowing = (x, y, colour = '#664e27') => (
 
 MouthBlowing.args = ['x', 'y', 'colour']
 
+MouthBlowing.previewViewBox = '0 0 10 19'
+
 export default MouthBlowing

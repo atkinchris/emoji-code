@@ -11,4 +11,6 @@ const EyeWinking = (x = 0, y = 0, colour = '#664e27') => (
 
 EyeWinking.args = ['x', 'y', 'colour']
 
+EyeWinking.previewViewBox = '0 0 15 8'
+
 export default EyeWinking

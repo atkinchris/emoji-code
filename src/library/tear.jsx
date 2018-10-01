@@ -10,4 +10,6 @@ const Tear = (x = 0, y = 0, rotation = 0, colour = '#65b1ef') => (
 
 Tear.args = ['x', 'y', 'rotation', 'colour']
 
+Tear.previewViewBox = '0 0 14 24'
+
 export default Tear

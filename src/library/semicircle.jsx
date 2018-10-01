@@ -10,4 +10,6 @@ const SemiCircle = (xStr = 25, yStr = 0, rStr = 25, colour = '#f46767') => {
 
 SemiCircle.args = ['x', 'y', 'radius', 'colour']
 
+SemiCircle.previewViewBox = '0 0 50 25'
+
 export default SemiCircle

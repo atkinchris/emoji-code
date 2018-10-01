@@ -12,4 +12,6 @@ Eye.previewStyle = {
   width: '50px',
 }
 
+Eye.previewViewBox = '0 0 10 12'
+
 export default Eye

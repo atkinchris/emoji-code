@@ -136,7 +136,10 @@ body,
 
 .library {
   background: white;
-  padding: 1rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background: #faf7ff;
+  padding: 2rem 4rem;
 }
 
 .library td {

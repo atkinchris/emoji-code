@@ -11,4 +11,6 @@ const Heart = (x = 0, y = 0, colour = '#f46767') => (
 
 Heart.args = ['x', 'y', 'colour']
 
+Heart.previewViewBox = '0 0 23 19'
+
 export default Heart

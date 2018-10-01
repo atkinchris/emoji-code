@@ -91,4 +91,6 @@ const MouthBarfing = (x = 0, y = 0, colour = '#664e27') => (
 
 MouthBarfing.args = ['x', 'y', 'colour']
 
+MouthBarfing.previewViewBox = '0 0 43 26'
+
 export default MouthBarfing

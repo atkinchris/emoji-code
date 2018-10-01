@@ -10,7 +10,7 @@ eye(30, 35)
 eyeWinking(55, 37)
 mouthBlowing(45, 55)
 heart(58, 58)
-sparkle(8, 8, 0.8)
+sparkle(8, 8, 0.6)
 `
 
 class Editor extends Component {

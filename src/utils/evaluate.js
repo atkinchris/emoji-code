@@ -4,8 +4,13 @@ const evaluate = text => {
   const errors = []
   const commands = []
 
-  String(text)
-    .match(/[^\r\n]+/g)
+  const lines = String(text).match(/[^\r\n]+/g)
+
+  if (lines === null) {
+    return { commands, errors }
+  }
+
+  lines
     .map((line, lineNumber) => ({
       command: line.replace(/[^a-zA-Z0-9 ()#,.-]/g, '').trim(),
       lineNumber,

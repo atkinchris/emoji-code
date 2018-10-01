@@ -4,7 +4,7 @@ const Sparkle = (x = 0, y = 0, scaleStr = 1) => {
   const scale = parseFloat(scaleStr) / 2
 
   return (
-    <svg x={x} y={y} viewBox="0 0 128 128">
+    <svg x={x} y={y}>
       <g transform={`scale(${scale} ${scale})`}>
         <path
           d="M19 45c12-9 20-18 24-25 4 7 11 16 23 25-12 8-19 18-23 24-4-6-12-16-24-24z"
@@ -20,5 +20,7 @@ const Sparkle = (x = 0, y = 0, scaleStr = 1) => {
 }
 
 Sparkle.args = ['x', 'y', 'scale']
+
+Sparkle.previewViewBox = '0 0 41 44'
 
 export default Sparkle

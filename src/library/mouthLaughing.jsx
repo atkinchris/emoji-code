@@ -20,4 +20,6 @@ const MouthLaughing = (x = 0, y = 0) => (
 
 MouthLaughing.args = ['x', 'y']
 
+MouthLaughing.previewViewBox = '0 0 38 22'
+
 export default MouthLaughing

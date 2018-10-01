@@ -11,4 +11,6 @@ const Mouth = (x, y, colour = '#664e27') => (
 
 Mouth.args = ['x', 'y', 'colour']
 
+Mouth.previewViewBox = '0 0 19 7'
+
 export default Mouth

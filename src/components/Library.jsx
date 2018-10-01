@@ -8,19 +8,22 @@ const Library = () => {
     args: library[command].args,
     fn: library[command],
     previewStyle: library[command].previewStyle,
+    previewViewBox: library[command].previewViewBox,
   }))
 
   return (
     <div className="library">
       <table>
         <thead>
-          <th>Command</th>
-          <th>Arguments</th>
-          <th>Output</th>
+          <tr>
+            <th>Command</th>
+            <th>Arguments</th>
+            <th>Output</th>
+          </tr>
         </thead>
         <tbody>
-          {functions.map(({ command, args = [], fn, previewStyle }) => (
-            <tr className="align-center">
+          {functions.map(({ command, args = [], fn, previewStyle, previewViewBox }) => (
+            <tr className="align-center" key={command}>
               <td>
                 <pre>{command}</pre>
               </td>
@@ -28,7 +31,7 @@ const Library = () => {
                 <pre>{args.join(', ')}</pre>
               </td>
               <td>
-                <svg className="library__preview" style={previewStyle} viewbox="0 0 100 100">
+                <svg className="library__preview" style={previewStyle} viewBox={previewViewBox}>
                   {fn()}
                 </svg>
               </td>
