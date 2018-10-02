@@ -29,7 +29,7 @@ class App extends Component {
     await postEmojiToServer(dataUri)
 
     this.setState({
-      saved: true,
+      saved: true, // eslint-disable-line react/no-unused-state
     })
   }
 

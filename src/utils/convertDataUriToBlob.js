@@ -1,5 +1,5 @@
 // https://stackoverflow.com/questions/4998908
-const convertDataUriToBlob = (dataURI) => {
+const convertDataUriToBlob = dataURI => {
   let byteString
 
   if (dataURI.split(',')[0].indexOf('base64') >= 0) {
@@ -8,7 +8,10 @@ const convertDataUriToBlob = (dataURI) => {
     byteString = unescape(dataURI.split(',')[1])
   }
 
-  const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0]
+  const mimeString = dataURI
+    .split(',')[0]
+    .split(':')[1]
+    .split(';')[0]
 
   const ia = new Uint8Array(byteString.length)
 

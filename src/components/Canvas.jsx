@@ -3,10 +3,7 @@ import PropTypes from 'prop-types'
 
 import getSvgBlob from '../utils/getSvgBlob'
 
-const Canvas = ({
-  components,
-  onEmojiSubmit,
-}) => {
+const Canvas = ({ components, onEmojiSubmit }) => {
   const svgElement = React.createRef()
 
   const submitHandler = async () => {
@@ -22,13 +19,10 @@ const Canvas = ({
         </svg>
       </div>
 
-      <button
-        type="button" className="button with-border"
-        onClick={submitHandler}
-      >
+      <button type="button" className="button with-border" onClick={submitHandler}>
         Save Emoji
       </button>
-    </div >
+    </div>
   )
 }
 

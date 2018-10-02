@@ -6,7 +6,9 @@
     "server": "nodemon server/index.js",
     "build": "NODE_ENV=production webpack",
     "test": "jest",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "prettier": "prettier --write \"src/**/*.{js,jsx}\"",
+    "lint": "eslint . --ext .js,.jsx"
   },
   "devDependencies": {
     "@babel/core": "^7.1.0",
