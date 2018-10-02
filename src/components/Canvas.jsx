@@ -1,11 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { saveSvgAsPng } from 'save-svg-as-png'
 
-const Canvas = ({ components }) => {
+import getSvgBlob from '../utils/getSvgBlob'
+
+const Canvas = ({ components, onEmojiSubmit }) => {
   const svgElement = React.createRef()
-  const saveSvg = () => {
-    saveSvgAsPng(svgElement.current, `emoji_${new Date().toISOString()}.png`, { scale: 4 })
+
+  const submitHandler = async () => {
+    const blob = await getSvgBlob(svgElement.current)
+    await onEmojiSubmit(blob)
   }
 
   return (
@@ -15,7 +18,8 @@ const Canvas = ({ components }) => {
           {components}
         </svg>
       </div>
-      <button type="button" className="button with-border" onClick={saveSvg}>
+
+      <button type="button" className="button with-border" onClick={submitHandler}>
         Save Emoji
       </button>
     </div>
@@ -24,6 +28,7 @@ const Canvas = ({ components }) => {
 
 Canvas.propTypes = {
   components: PropTypes.arrayOf(PropTypes.node).isRequired,
+  onEmojiSubmit: PropTypes.func.isRequired,
 }
 
 export default Canvas

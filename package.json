@@ -3,9 +3,12 @@
   "license": "UNLICENSED",
   "scripts": {
     "start": "webpack-dev-server",
+    "server": "nodemon server/index.js",
     "build": "NODE_ENV=production webpack",
     "test": "jest",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "prettier": "prettier --write \"src/**/*.{js,jsx}\"",
+    "lint": "eslint . --ext .js,.jsx"
   },
   "devDependencies": {
     "@babel/core": "^7.1.0",
@@ -38,10 +41,14 @@
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
     "brace": "^0.11.1",
+    "express": "^4.16.3",
+    "multer": "^1.4.0",
+    "nodemon": "^1.18.4",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-ace": "^6.1.4",
     "react-dom": "^16.4.1",
-    "save-svg-as-png": "^1.4.6"
+    "save-svg-as-png": "^1.4.6",
+    "whatwg-fetch": "^3.0.0"
   }
 }

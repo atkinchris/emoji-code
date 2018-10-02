@@ -6,6 +6,7 @@ import Library from './Library'
 
 import evaluate from '../utils/evaluate'
 import mapFuncs from '../utils/mapFuncs'
+import postEmojiToServer from '../utils/postEmojiToServer'
 
 import functionLibrary from '../library'
 
@@ -19,8 +20,17 @@ class App extends Component {
       showLibrary: false,
     }
 
+    this.onEmojiSubmit = this.onEmojiSubmit.bind(this)
     this.updateCommands = this.updateCommands.bind(this)
     this.showLibrary = this.showLibrary.bind(this)
+  }
+
+  async onEmojiSubmit(dataUri) {
+    await postEmojiToServer(dataUri)
+
+    this.setState({
+      saved: true, // eslint-disable-line react/no-unused-state
+    })
   }
 
   updateCommands(text) {
@@ -47,7 +57,7 @@ class App extends Component {
         </div>
 
         <div className="container__pane padded-card flex-card">
-          <Canvas components={components} />
+          <Canvas components={components} onEmojiSubmit={this.onEmojiSubmit} />
         </div>
 
         <div className="container__row align-center">
