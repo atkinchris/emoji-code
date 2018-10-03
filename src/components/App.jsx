@@ -7,8 +7,8 @@ import Modal from './Modal'
 
 import evaluate from '../utils/evaluate'
 import mapFuncs from '../utils/mapFuncs'
-import postEmojiToServer from '../utils/postEmojiToServer'
 import getSvgBlob from '../utils/getSvgBlob'
+import postEmojiToServer from '../utils/postEmojiToServer'
 
 import functionLibrary from '../library'
 
@@ -22,7 +22,7 @@ class App extends Component {
       showLibrary: false,
     }
 
-    this.svgElement = React.createRef()
+    this.canvasRef = React.createRef()
 
     this.onEmojiSubmit = this.onEmojiSubmit.bind(this)
     this.updateCommands = this.updateCommands.bind(this)
@@ -30,7 +30,7 @@ class App extends Component {
   }
 
   async onEmojiSubmit() {
-    const blob = await getSvgBlob(this.svgElement.current)
+    const blob = await getSvgBlob(this.canvasRef.current)
     await postEmojiToServer(blob)
 
     this.setState({

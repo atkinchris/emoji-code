@@ -2,8 +2,7 @@ import 'whatwg-fetch'
 
 const postEmojiToServer = async emoji => {
   const body = new FormData()
-
-  body.append('emoji', emoji, `emoji_${new Date().toISOString()}.png`)
+  body.append('emoji', emoji, 'emoji.png')
 
   const response = await fetch('http://localhost:8080/uploadji', {
     method: 'POST',
