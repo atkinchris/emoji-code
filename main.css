@@ -11,12 +11,23 @@ html {
 }
 
 body,
-#root {
+#root,
+.modal {
   font-family: sans-serif;
-  background: #efecec;
+  color: #9951ff;
+  background: #ffd700;
   margin: 0;
   padding: 0;
   height: 100%;
+}
+
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+  padding: 4rem;
 }
 
 .container {
@@ -56,6 +67,12 @@ body,
   flex-grow: 1;
 }
 
+.button-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
 .textarea {
   width: 100%;
   min-height: 25rem;
@@ -66,7 +83,6 @@ body,
 .editor {
   display: flex;
   flex-direction: column;
-  border-radius: 1rem;
   background: white;
   padding: 1rem;
 }
@@ -86,7 +102,7 @@ body,
 
 .editor__error-marker {
   position: absolute;
-  background: red;
+  background: #ff7e67;
   opacity: 0.3;
 }
 
@@ -102,41 +118,34 @@ body,
   font-family: 'Fredoka One', cursive;
   font-weight: normal;
   text-align: center;
-  color: #ccc;
-}
-
-.credits {
-  color: #aaa;
-  text-align: center;
-}
-
-.credits a:link,
-.credits a:visited,
-.credits a:hover,
-.credits a:active {
-  color: #5c5757;
+  color: #faf7ff;
 }
 
 .with-border {
-  border: 1px solid #5c5757;
+  border: 10px solid #ffd700;
 }
 
 .button {
+  color: #faf7ff;
+  background: #9951ff;
   margin-top: 2rem;
   font-size: 2rem;
-  border-radius: 2rem;
   padding: 0.5rem 2.5rem;
+  border: none;
 }
 
 .button:hover,
 .button:focus {
-  color: white;
-  background-color: #f46767;
+  color: #faf7ff;
+  background-color: #6900ff;
 }
 
 .library {
   background: white;
-  padding: 1rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background: #faf7ff;
+  padding: 2rem 4rem;
 }
 
 .library td {
@@ -149,19 +158,21 @@ body,
   width: 50px;
 }
 
-.modal {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 5;
-  background: #efecec;
-  padding: 4rem;
-}
-
 .align-center {
   text-align: center;
+}
+
+.ace_line {
+  color: #333333 !important;
+}
+
+.ace_line .ace_constant {
+  color: #6900ff !important;
+}
+
+.ace_line .ace_numeric,
+.ace_line .ace_keyword {
+  color: #9951ff !important;
 }
 
 
