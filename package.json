@@ -7,7 +7,7 @@
     "build": "NODE_ENV=production webpack",
     "test": "jest",
     "deploy": "gh-pages -d dist",
-    "prettier": "prettier --write \"src/**/*.{js,jsx}\"",
+    "prettier": "prettier --write \"{src,server}/**/*.{js,jsx}\"",
     "lint": "eslint . --ext .js,.jsx"
   },
   "devDependencies": {
@@ -50,6 +50,7 @@
     "react-ace": "^6.1.4",
     "react-dom": "^16.4.1",
     "save-svg-as-png": "^1.4.6",
+    "uniquefilename": "^1.1.2",
     "whatwg-fetch": "^3.0.0"
   }
 }
