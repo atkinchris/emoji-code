@@ -15,10 +15,29 @@ body,
 .modal {
   font-family: sans-serif;
   color: #9951ff;
-  background: #ffd700;
   margin: 0;
   padding: 0;
   height: 100%;
+}
+
+.modal {
+  background: white;
+}
+
+.modal:before,
+body:before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.2;
+  background-image: url('./assets/emoji-pattern.png');
+  background-size: 200px;
+  background-position: -16px;
 }
 
 .modal {
@@ -122,7 +141,7 @@ body,
 }
 
 .with-border {
-  border: 10px solid #ffd700;
+  border: 1px solid #ffdd67;
 }
 
 .button {
@@ -144,7 +163,6 @@ body,
   background: white;
   overflow-y: scroll;
   overflow-x: hidden;
-  background: #faf7ff;
   padding: 2rem 4rem;
 }
 
