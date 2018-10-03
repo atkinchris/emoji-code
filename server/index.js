@@ -1,12 +1,16 @@
+const path = require('path')
+const chalk = require('chalk')
 const express = require('express')
 const multer = require('multer')
 const uniquefilename = require('uniquefilename')
-const path = require('path')
 
 const app = express()
-const port = 8080
+const LISTEN_HOST = 'localhost'
+const LISTEN_PORT = 8080
 
 const EMOJI_DIRECTORY = 'emoji/'
+
+const log = (message) => console.log(`[${chalk.green('Emoji Collector')}] ${message}`)
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -25,15 +29,17 @@ const upload = multer({
   storage,
 })
 
-app.post('/uploadji', upload.single('emoji'), (req, res) => {
-  // req.file is the `avatar` file
-  // req.body will hold the text fields, if there were any
-  console.log(req.file)
-  res.sendStatus(200)
+app.listen(LISTEN_PORT, LISTEN_HOST, () => {
+  const fullUrl = `http://${LISTEN_HOST}:${LISTEN_PORT}`
+  log(`Ready for emojis! Send some to ${chalk.underline.bold(fullUrl)}`)
 })
 
 app.get('/', (req, res) => res.send('helloji 🌚'))
 
-app.listen(port, () => {
-  console.log(`Emoji Collector listening on port ${port}!`)
+app.post('/uploadji', upload.single('emoji'), (req, res) => {
+  const { file } = req
+  log(`Thanks for ${chalk.bold.magenta(file.filename)}! I saved it!!`)
+
+  res.header("Access-Control-Allow-Origin", "*")
+  res.sendStatus(200)
 })
