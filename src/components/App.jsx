@@ -63,20 +63,21 @@ class App extends Component {
             <button type="button" className="button" onClick={this.showLibrary}>
               Show Library
             </button>
-            <Modal isOpen={showLibrary}>
-              <div className="modal flex-card flex-card--align-center">
-                <Library />
-                <button type="button" className="button" onClick={this.showLibrary}>
-                  Hide Library
-                </button>
-              </div>
-            </Modal>
           </div>
         </div>
 
         <div className="container__pane padded-card flex-card">
           <Editor onUpdate={this.updateCommands} errors={allErrors} className="flex-card__item" />
         </div>
+
+        <Modal isOpen={showLibrary}>
+          <div className="modal flex-card flex-card--align-center">
+            <Library />
+            <button type="button" className="button" onClick={this.showLibrary}>
+              Hide Library
+            </button>
+          </div>
+        </Modal>
       </div>
     )
   }
