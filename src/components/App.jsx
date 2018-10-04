@@ -17,6 +17,7 @@ class App extends Component {
     super(props)
 
     this.state = {
+      name: 'My Emoji',
       commands: [],
       errors: [],
       showLibrary: false,
@@ -30,8 +31,10 @@ class App extends Component {
   }
 
   async onEmojiSubmit() {
+    const { name } = this.state
     const blob = await getSvgBlob(this.canvasRef.current)
-    await postEmojiToServer(blob)
+
+    await postEmojiToServer(name, blob)
 
     this.setState({
       saved: true, // eslint-disable-line react/no-unused-state
