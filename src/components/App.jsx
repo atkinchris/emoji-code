@@ -25,6 +25,7 @@ class App extends Component {
 
     this.canvasRef = React.createRef()
 
+    this.onChangeName = this.onChangeName.bind(this)
     this.onEmojiSubmit = this.onEmojiSubmit.bind(this)
     this.updateCommands = this.updateCommands.bind(this)
     this.showLibrary = this.showLibrary.bind(this)
@@ -35,9 +36,13 @@ class App extends Component {
     const blob = await getSvgBlob(this.canvasRef.current)
 
     await postEmojiToServer(name, blob)
+  }
+
+  onChangeName(e) {
+    const { value } = e.target
 
     this.setState({
-      saved: true, // eslint-disable-line react/no-unused-state
+      name: value,
     })
   }
 
@@ -50,27 +55,30 @@ class App extends Component {
   }
 
   render() {
-    const { commands, errors, showLibrary } = this.state
+    const { commands, errors, showLibrary, name } = this.state
     const { components, errors: cmdErrors } = mapFuncs(commands, functionLibrary)
     const allErrors = [...errors, ...cmdErrors]
 
     return (
       <div className="container">
         <div className="container__pane padded-card flex-card">
-          <Canvas components={components} ref={this.svgElement} />
-
-          <div className="button-group">
-            <button type="button" className="button" onClick={this.saveEmoji}>
-              Save Emoji
-            </button>
-            <button type="button" className="button" onClick={this.showLibrary}>
-              Show Library
-            </button>
-          </div>
+          <Canvas components={components} ref={this.canvasRef} />
         </div>
 
         <div className="container__pane padded-card flex-card">
           <Editor onUpdate={this.updateCommands} errors={allErrors} className="flex-card__item" />
+        </div>
+
+        <div className="container__row align-center">
+          <input type="text" name="name" value={name} onChange={this.onChangeName} />
+
+          <button type="button" className="button with-border" onClick={this.onEmojiSubmit}>
+            Save Emoji
+          </button>
+
+          <button type="button" className="button" onClick={this.showLibrary}>
+            Show Library
+          </button>
         </div>
 
         <Modal isOpen={showLibrary}>
