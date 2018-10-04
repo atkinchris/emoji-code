@@ -1,31 +1,34 @@
-import circle from './circle'
-import eye from './eye'
-import eyeWinking from './eyeWinking'
-import heart from './heart'
-import mouth from './mouth'
-import mouthBarfing from './mouthBarfing'
-import mouthBlowing from './mouthBlowing'
-import mouthLaughing from './mouthLaughing'
-import poop from './poop'
+import circle from './svgs/circle.svg'
+import eye from './svgs/eye.svg'
+import eyeWinking from './svgs/eyeWinking.svg'
+import mouthBlowing from './svgs/mouthBlowing.svg'
+import mouthGrinning from './svgs/mouthGrinning.svg'
+import heart from './svgs/heart.svg'
+import sparkle from './svgs/sparkle.svg'
+import mouth from './svgs/mouth.svg'
+import mouthLaughing from './svgs/mouthLaughing.svg'
+import poop from './svgs/poop.svg'
+import tear from './svgs/tear.svg'
+
+import unicornHorn from './unicornHorn'
 import rectangle from './rectangle'
 import semicircle from './semicircle'
-import sparkle from './sparkle'
-import tear from './tear'
-import unicornHorn from './unicornHorn'
+
+import withWrapper from './withWrapper'
 
 export default {
-  circle,
-  eye,
-  eyeWinking,
-  heart,
-  mouth,
-  mouthBarfing,
-  mouthBlowing,
-  mouthLaughing,
-  poop,
+  circle: withWrapper(circle),
+  eye: withWrapper(eye),
+  eyeWinking: withWrapper(eyeWinking),
+  heart: withWrapper(heart),
+  mouth: withWrapper(mouth),
+  mouthBlowing: withWrapper(mouthBlowing),
+  mouthGrinning: withWrapper(mouthGrinning),
+  mouthLaughing: withWrapper(mouthLaughing),
+  poop: withWrapper(poop),
   rectangle,
   semicircle,
-  sparkle,
-  tear,
+  sparkle: withWrapper(sparkle),
+  tear: withWrapper(tear),
   unicornHorn,
 }

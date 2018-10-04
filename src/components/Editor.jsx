@@ -5,12 +5,12 @@ import AceEditor from 'react-ace'
 import 'brace/mode/css'
 import 'brace/theme/textmate'
 
-const EXAMPLE_CODE = `circle(50, 50, 45, #ffdd67)
-eye(30, 35)
-eyeWinking(55, 37)
-mouthBlowing(45, 55)
-heart(58, 58)
-sparkle(8, 8, 0.6)
+const EXAMPLE_CODE = `circle(50, 50, 90%)
+eye(35, 40)
+eyeWinking(65, 40)
+mouthBlowing(50, 65)
+heart(70, 65)
+sparkle(12, 25)
 `
 
 class Editor extends Component {
