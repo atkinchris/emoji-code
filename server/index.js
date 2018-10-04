@@ -9,7 +9,8 @@ const app = express()
 const LISTEN_HOST = 'localhost'
 const LISTEN_PORT = 8080
 
-const EMOJI_DIRECTORY = 'emoji/'
+const EMOJI_DIRECTORY = path.join(__dirname, '..', 'emoji')
+const ASSETS_PATH = path.join(__dirname, '..', 'dist')
 
 const log = message => console.log(`[${chalk.green('Emoji Collector')}] ${message}`)
 
@@ -31,7 +32,11 @@ const upload = multer({
   storage,
 })
 
-app.use(express.static('dist'))
+app.use(express.static(ASSETS_PATH))
+
+app.get('*', (req, res) => {
+  res.sendFile('index.html', { root: ASSETS_PATH })
+})
 
 app.post('/uploadji', upload.single('emoji'), (req, res) => {
   const { file } = req
