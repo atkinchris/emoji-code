@@ -7,7 +7,7 @@
     "build": "NODE_ENV=production webpack",
     "test": "jest",
     "deploy": "gh-pages -d dist",
-    "prettier": "prettier --write \"src/**/*.{js,jsx}\"",
+    "prettier": "prettier --write \"{src,server}/**/*.{js,jsx}\"",
     "lint": "eslint . --ext .js,.jsx"
   },
   "devDependencies": {
@@ -42,6 +42,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
     "brace": "^0.11.1",
+    "chalk": "^2.4.1",
     "express": "^4.16.3",
     "multer": "^1.4.0",
     "nodemon": "^1.18.4",
@@ -49,7 +50,9 @@
     "react": "^16.4.1",
     "react-ace": "^6.1.4",
     "react-dom": "^16.4.1",
+    "sanitize-filename": "^1.6.1",
     "save-svg-as-png": "^1.4.6",
+    "uniquefilename": "^1.1.2",
     "whatwg-fetch": "^3.0.0"
   }
 }

@@ -1,15 +1,30 @@
+const path = require('path')
+const chalk = require('chalk')
 const express = require('express')
 const multer = require('multer')
+const uniquefilename = require('uniquefilename')
+const sanitizefilename = require('sanitize-filename')
 
 const app = express()
-const port = 8080
+const LISTEN_HOST = 'localhost'
+const LISTEN_PORT = 8080
+
+const EMOJI_DIRECTORY = path.join(__dirname, '..', 'emoji')
+const ASSETS_PATH = path.join(__dirname, '..', 'dist')
+
+const log = message => console.log(`[${chalk.green('Emoji Collector')}] ${message}`)
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'emoji/')
+    cb(null, EMOJI_DIRECTORY)
   },
   filename: (req, file, cb) => {
-    cb(null, file.originalname)
+    const safeName = sanitizefilename(file.originalname)
+    const fullUploadPath = path.resolve(EMOJI_DIRECTORY, safeName)
+
+    uniquefilename.get(fullUploadPath, {}, uniqueFileName => {
+      cb(null, path.basename(uniqueFileName))
+    })
   },
 })
 
@@ -17,25 +32,21 @@ const upload = multer({
   storage,
 })
 
-app.post(
-  '/uploadji',
-  upload.single('emoji'),
-  (req, res) => {
-    // req.file is the `avatar` file
-    // req.body will hold the text fields, if there were any
-    console.log(req.file)
-    res.sendStatus(200)
-  }
-)
+app.use(express.static(ASSETS_PATH))
 
-app.get(
-  '/',
-  (req, res) => res.send('helloji 🌚'),
-)
+app.get('*', (req, res) => {
+  res.sendFile('index.html', { root: ASSETS_PATH })
+})
 
-app.listen(
-  port,
-  () => {
-    console.log(`Emoji Collector listening on port ${port}!`)
-  }
-)
+app.post('/uploadji', upload.single('emoji'), (req, res) => {
+  const { file } = req
+  log(`Thanks for ${chalk.bold.magenta(file.filename)}! I saved it!!`)
+
+  res.header('Access-Control-Allow-Origin', '*')
+  res.sendStatus(200)
+})
+
+app.listen(LISTEN_PORT, LISTEN_HOST, () => {
+  const fullUrl = `http://${LISTEN_HOST}:${LISTEN_PORT}`
+  log(`Ready for emojis! Send some to ${chalk.underline.bold(fullUrl)}`)
+})
