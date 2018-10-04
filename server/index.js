@@ -11,7 +11,7 @@ const LISTEN_PORT = 8080
 
 const EMOJI_DIRECTORY = 'emoji/'
 
-const log = (message) => console.log(`[${chalk.green('Emoji Collector')}] ${message}`)
+const log = message => console.log(`[${chalk.green('Emoji Collector')}] ${message}`)
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -42,6 +42,6 @@ app.post('/uploadji', upload.single('emoji'), (req, res) => {
   const { file } = req
   log(`Thanks for ${chalk.bold.magenta(file.filename)}! I saved it!!`)
 
-  res.header("Access-Control-Allow-Origin", "*")
+  res.header('Access-Control-Allow-Origin', '*')
   res.sendStatus(200)
 })
