@@ -31,12 +31,7 @@ const upload = multer({
   storage,
 })
 
-app.listen(LISTEN_PORT, LISTEN_HOST, () => {
-  const fullUrl = `http://${LISTEN_HOST}:${LISTEN_PORT}`
-  log(`Ready for emojis! Send some to ${chalk.underline.bold(fullUrl)}`)
-})
-
-app.get('/', (req, res) => res.send('helloji 🌚'))
+app.use(express.static('dist'))
 
 app.post('/uploadji', upload.single('emoji'), (req, res) => {
   const { file } = req
@@ -44,4 +39,9 @@ app.post('/uploadji', upload.single('emoji'), (req, res) => {
 
   res.header('Access-Control-Allow-Origin', '*')
   res.sendStatus(200)
+})
+
+app.listen(LISTEN_PORT, LISTEN_HOST, () => {
+  const fullUrl = `http://${LISTEN_HOST}:${LISTEN_PORT}`
+  log(`Ready for emojis! Send some to ${chalk.underline.bold(fullUrl)}`)
 })
