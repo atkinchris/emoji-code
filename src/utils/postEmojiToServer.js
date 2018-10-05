@@ -5,7 +5,7 @@ const postEmojiToServer = async (name, emoji) => {
   const body = new FormData()
   body.append('emoji', emoji, `${sanitize(name)}.png`)
 
-  const response = await fetch('http://localhost:8080/uploadji', {
+  const response = await fetch('/uploadji', {
     method: 'POST',
     body,
   })

@@ -6,7 +6,6 @@ const uniquefilename = require('uniquefilename')
 const sanitizefilename = require('sanitize-filename')
 
 const app = express()
-const LISTEN_HOST = 'localhost'
 const LISTEN_PORT = 8080
 
 const EMOJI_DIRECTORY = path.join(__dirname, '..', 'emoji')
@@ -46,7 +45,6 @@ app.post('/uploadji', upload.single('emoji'), (req, res) => {
   res.sendStatus(200)
 })
 
-app.listen(LISTEN_PORT, LISTEN_HOST, () => {
-  const fullUrl = `http://${LISTEN_HOST}:${LISTEN_PORT}`
-  log(`Ready for emojis! Send some to ${chalk.underline.bold(fullUrl)}`)
+app.listen(LISTEN_PORT, () => {
+  log(`Ready for emojis! Send some pls`)
 })
