@@ -8,7 +8,8 @@
     "test": "jest",
     "deploy": "gh-pages -d dist",
     "prettier": "prettier --write \"{src,server}/**/*.{js,jsx}\"",
-    "lint": "eslint . --ext .js,.jsx"
+    "lint": "eslint . --ext .js,.jsx",
+    "svgo": "svgo --pretty -f ./src/library/svgs --config=svgo.config.json"
   },
   "devDependencies": {
     "@babel/core": "^7.1.0",
@@ -18,6 +19,7 @@
     "babel-eslint": "^9.0.0",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.2",
+    "babel-plugin-inline-react-svg": "^0.5.4",
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^1.0.0",
     "eslint": "4",
@@ -32,6 +34,7 @@
     "mini-css-extract-plugin": "^0.4.1",
     "prettier": "^1.13.7",
     "style-loader": "^0.23.0",
+    "svgo": "^1.1.1",
     "uglifyjs-webpack-plugin": "^2.0.0",
     "url-loader": "^1.1.1",
     "webpack": "^4.16.2",
