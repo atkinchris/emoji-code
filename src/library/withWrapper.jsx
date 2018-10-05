@@ -13,7 +13,7 @@ const withWrapper = Component => {
     </g>
   )
 
-  wrapper.args = ['x', 'y', 'percentage size']
+  wrapper.args = ['x', 'y', 'percentage size', 'degrees rotation']
 
   return wrapper
 }
