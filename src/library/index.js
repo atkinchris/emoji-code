@@ -1,5 +1,6 @@
 import bearEar from './svgs/bearEar.svg'
 import bearMouth from './svgs/bearMouth.svg'
+import blush from './svgs/blush.svg'
 import catEar from './svgs/catEar.svg'
 import catEyeLeft from './svgs/catEyeLeft.svg'
 import catEyeRight from './svgs/catEyeRight.svg'
@@ -71,6 +72,7 @@ export default {
   unicornHorn,
   bearEar: withWrapper(bearEar),
   bearMouth: withWrapper(bearMouth),
+  blush: withWrapper(blush),
   catEar: withWrapper(catEar),
   catEyeLeft: withWrapper(catEyeLeft),
   catEyeRight: withWrapper(catEyeRight),
