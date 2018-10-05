@@ -2,7 +2,7 @@ import React from 'react'
 
 const fromPercentage = percentage => parseInt(percentage, 10) / 100
 
-const withWrapper = Component => {
+const withWrapper = (Component, category) => {
   const wrapper = (id, x = 50, y = 50, scale = 100, rotate = 0, colour) => (
     <g key={id} transform={`translate(${x}, ${y})`} style={{ transformOrigin: 'center' }}>
       {colour && (
@@ -29,7 +29,8 @@ const withWrapper = Component => {
     </g>
   )
 
-  wrapper.args = ['x', 'y', 'percentage size', 'degrees rotation']
+  wrapper.args = ['x', 'y', 'size', 'rotation', 'colour']
+  wrapper.category = category
 
   return wrapper
 }
