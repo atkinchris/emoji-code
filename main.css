@@ -174,8 +174,9 @@ body:before {
 }
 
 .library__preview {
-  height: 50px;
-  width: 50px;
+  background: #fff9e3;
+  height: 100px;
+  width: 100px;
 }
 
 .align-center {
