@@ -28,7 +28,6 @@ import eyeWinking from './svgs/eyeWinking.svg'
 import face from './svgs/face.svg'
 import fangs from './svgs/fangs.svg'
 import glasses from './svgs/glasses.svg'
-import handHugging from './svgs/handHugging.svg'
 import handHuggingLeft from './svgs/handHuggingLeft.svg'
 import handHuggingRight from './svgs/handHuggingRight.svg'
 import handThinking from './svgs/handThinking.svg'
@@ -103,7 +102,6 @@ export default {
   face: withWrapper(face),
   fangs: withWrapper(fangs),
   glasses: withWrapper(glasses),
-  handHugging: withWrapper(handHugging),
   handHuggingLeft: withWrapper(handHuggingLeft),
   handHuggingRight: withWrapper(handHuggingRight),
   handThinking: withWrapper(handThinking),
