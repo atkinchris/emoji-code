@@ -20,6 +20,7 @@ import eyeRolling from './svgs/eyeRolling.svg'
 import eyeSparkle from './svgs/eyeSparkle.svg'
 import eyeThinking from './svgs/eyeThinking.svg'
 import eyeWinking from './svgs/eyeWinking.svg'
+import face from './svgs/face.svg'
 import fangs from './svgs/fangs.svg'
 import glasses from './svgs/glasses.svg'
 import handHugging from './svgs/handHugging.svg'
@@ -49,6 +50,7 @@ import mouthYawning from './svgs/mouthYawning.svg'
 import poop from './svgs/poop.svg'
 import pug from './svgs/pug.svg'
 import pumpkin from './svgs/pumpkin.svg'
+import semiCircle from './svgs/semiCircle.svg'
 import snout from './svgs/snout.svg'
 import sparkle from './svgs/sparkle.svg'
 import sunglasses from './svgs/sunglasses.svg'
@@ -61,14 +63,10 @@ import zipper from './svgs/zipper.svg'
 
 import unicornHorn from './unicornHorn'
 import rectangle from './rectangle'
-import semicircle from './semicircle'
 
 import withWrapper from './withWrapper'
 
 export default {
-  rectangle,
-  semicircle,
-  unicornHorn,
   bearEar: withWrapper(bearEar),
   bearMouth: withWrapper(bearMouth),
   catEar: withWrapper(catEar),
@@ -91,6 +89,7 @@ export default {
   eyeSparkle: withWrapper(eyeSparkle),
   eyeThinking: withWrapper(eyeThinking),
   eyeWinking: withWrapper(eyeWinking),
+  face: withWrapper(face),
   fangs: withWrapper(fangs),
   glasses: withWrapper(glasses),
   handHugging: withWrapper(handHugging),
@@ -120,6 +119,7 @@ export default {
   poop: withWrapper(poop),
   pug: withWrapper(pug),
   pumpkin: withWrapper(pumpkin),
+  semiCircle: withWrapper(semiCircle),
   snout: withWrapper(snout),
   sparkle: withWrapper(sparkle),
   sunglasses: withWrapper(sunglasses),
@@ -129,4 +129,6 @@ export default {
   unicorn: withWrapper(unicorn),
   z: withWrapper(z),
   zipper: withWrapper(zipper),
+  rectangle,
+  unicornHorn,
 }

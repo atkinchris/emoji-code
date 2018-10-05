@@ -5,7 +5,7 @@ import AceEditor from 'react-ace'
 import 'brace/mode/css'
 import 'brace/theme/textmate'
 
-const EXAMPLE_CODE = `circle(50, 50, 90%)
+const EXAMPLE_CODE = `face(50, 50, 90%)
 eye(35, 40)
 eyeWinking(65, 40)
 mouthBlowing(50, 65)
