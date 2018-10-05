@@ -3,13 +3,24 @@ import React from 'react'
 const fromPercentage = percentage => parseInt(percentage, 10) / 100
 
 const withWrapper = Component => {
-  const wrapper = (x = 50, y = 50, scale = 100, rotate = 0) => (
+  const wrapper = (id, x = 50, y = 50, scale = 100, rotate = 0, colour) => (
     <g transform={`translate(${x}, ${y})`} style={{ transformOrigin: 'center' }}>
-      <svg x="-50" y="-50">
+      {colour && (
+        <defs>
+          <filter id={`${id}/colour-shift`} x="0" y="0" width="100%" height="100%">
+            <feFlood floodColor={colour} result="flood" />
+            <feComposite in="flood" in2="SourceAlpha" operator="in" result="flood-alpha" />
+            <feBlend mode="hue" in="flood-alpha" in2="SourceGraphic" />
+          </filter>
+        </defs>
+      )}
+
+      <svg x="-50" y="-50" id={id}>
         <g
           style={{
             transform: `rotate(${rotate}deg) scale(${fromPercentage(scale)})`,
             transformOrigin: 'center',
+            filter: colour ? `url(#${id}/colour-shift)` : '',
           }}
         >
           <Component />

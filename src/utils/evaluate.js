@@ -24,13 +24,18 @@ const evaluate = text => {
         return
       }
 
+      const commandName = groups[1]
+      const args = groups[2]
+        .split(',')
+        .map(arg => arg.trim())
+        .filter(_ => _)
+
+      const id = `${lineNumber}:${commandName}`
+
       commands.push({
         lineNumber,
-        command: groups[1],
-        args: groups[2]
-          .split(',')
-          .map(arg => arg.trim())
-          .filter(_ => _),
+        command: commandName,
+        args: [id, ...args],
       })
     })
 
