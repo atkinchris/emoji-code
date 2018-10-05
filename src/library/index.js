@@ -57,7 +57,7 @@ import sparkle from './svgs/sparkle.svg'
 import sunglasses from './svgs/sunglasses.svg'
 import tada from './svgs/tada.svg'
 import tear from './svgs/tear.svg'
-import tongueRight from './svgs/tongueRight.svg'
+import tongue from './svgs/tongue.svg'
 import triangle from './svgs/triangle.svg'
 import unicorn from './svgs/unicorn.svg'
 import z from './svgs/z.svg'
@@ -128,7 +128,7 @@ export default {
   sunglasses: withWrapper(sunglasses),
   tada: withWrapper(tada),
   tear: withWrapper(tear),
-  tongueRight: withWrapper(tongueRight),
+  tongue: withWrapper(tongue),
   triangle: withWrapper(triangle),
   unicorn: withWrapper(unicorn),
   z: withWrapper(z),
