@@ -8,7 +8,6 @@ import chipmunk from './svgs/chipmunk.svg'
 import circle from './svgs/circle.svg'
 import cross from './svgs/cross.svg'
 import dollar from './svgs/dollar.svg'
-import eggplant from './svgs/eggplant.svg'
 import eye from './svgs/eye.svg'
 import eyeCalm from './svgs/eyeCalm.svg'
 import eyeCheeky from './svgs/eyeCheeky.svg'
@@ -78,7 +77,6 @@ export default {
   circle: withWrapper(circle),
   cross: withWrapper(cross),
   dollar: withWrapper(dollar),
-  eggplant: withWrapper(eggplant),
   eye: withWrapper(eye),
   eyeCalm: withWrapper(eyeCalm),
   eyeCheeky: withWrapper(eyeCheeky),
