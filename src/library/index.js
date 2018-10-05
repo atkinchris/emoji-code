@@ -20,6 +20,7 @@ import eyeRolling from './svgs/eyeRolling.svg'
 import eyeSparkle from './svgs/eyeSparkle.svg'
 import eyeThinking from './svgs/eyeThinking.svg'
 import eyeWinking from './svgs/eyeWinking.svg'
+import fangs from './svgs/fangs.svg'
 import glasses from './svgs/glasses.svg'
 import handHugging from './svgs/handHugging.svg'
 import handHuggingLeft from './svgs/handHuggingLeft.svg'
@@ -90,6 +91,7 @@ export default {
   eyeSparkle: withWrapper(eyeSparkle),
   eyeThinking: withWrapper(eyeThinking),
   eyeWinking: withWrapper(eyeWinking),
+  fangs: withWrapper(fangs),
   glasses: withWrapper(glasses),
   handHugging: withWrapper(handHugging),
   handHuggingLeft: withWrapper(handHuggingLeft),
