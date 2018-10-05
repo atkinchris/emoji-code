@@ -5,6 +5,10 @@ import catEar from './svgs/catEar.svg'
 import catEyeLeft from './svgs/catEyeLeft.svg'
 import catEyeRight from './svgs/catEyeRight.svg'
 import catMouth from './svgs/catMouth.svg'
+import chickenBeak from './svgs/chickenBeak.svg'
+import chickenComb from './svgs/chickenComb.svg'
+import chickenEye from './svgs/chickenEye.svg'
+import chickenHead from './svgs/chickenHead.svg'
 import chipmunk from './svgs/chipmunk.svg'
 import circle from './svgs/circle.svg'
 import cross from './svgs/cross.svg'
@@ -76,6 +80,10 @@ export default {
   catEyeLeft: withWrapper(catEyeLeft),
   catEyeRight: withWrapper(catEyeRight),
   catMouth: withWrapper(catMouth),
+  chickenBeak: withWrapper(chickenBeak),
+  chickenComb: withWrapper(chickenComb),
+  chickenEye: withWrapper(chickenEye),
+  chickenHead: withWrapper(chickenHead),
   chipmunk: withWrapper(chipmunk),
   circle: withWrapper(circle),
   cross: withWrapper(cross),
