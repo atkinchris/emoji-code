@@ -63,10 +63,10 @@ import tear from './svgs/tear.svg'
 import tongue from './svgs/tongue.svg'
 import triangle from './svgs/triangle.svg'
 import unicorn from './svgs/unicorn.svg'
+import unicornHorn from './svgs/unicornHorn.svg'
 import z from './svgs/z.svg'
 import zipper from './svgs/zipper.svg'
 
-import unicornHorn from './unicornHorn'
 import rectangle from './rectangle'
 
 import withWrapper from './withWrapper'
@@ -137,8 +137,8 @@ export default {
   tongue: withWrapper(tongue),
   triangle: withWrapper(triangle),
   unicorn: withWrapper(unicorn),
+  unicornHorn: withWrapper(unicornHorn),
   z: withWrapper(z),
   zipper: withWrapper(zipper),
   rectangle,
-  unicornHorn,
 }
