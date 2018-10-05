@@ -54,7 +54,7 @@ class Editor extends Component {
     }))
 
     return (
-      <div className={`editor with-border ${className}`}>
+      <div className={`editor ${className}`}>
         <AceEditor
           className="editor__area"
           width="100%"

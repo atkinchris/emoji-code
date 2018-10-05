@@ -61,24 +61,42 @@ class App extends Component {
 
     return (
       <div className="container">
-        <div className="container__pane padded-card flex-card">
-          <Canvas components={components} ref={this.canvasRef} />
-        </div>
+        <div className="container__row container">
+          <div className="container__pane padded-card flex-card">
+            <Canvas components={components} ref={this.canvasRef} />
 
-        <div className="container__pane padded-card flex-card">
-          <Editor onUpdate={this.updateCommands} errors={allErrors} className="flex-card__item" />
-        </div>
+            <footer className="controls">
+              <div className="logo">
+                <h1 className="logo__text">
+                  Emoji Code!
+                </h1>
+              </div>
 
-        <div className="container__row align-center">
-          <input type="text" name="name" value={name} onChange={this.onChangeName} />
+              <div className="container__pane flex-card flex-card--row">
+                <button type="button" className="button with-border" onClick={this.onEmojiSubmit}>
+                  Save Emoji
+                </button>
 
-          <button type="button" className="button with-border" onClick={this.onEmojiSubmit}>
-            Save Emoji
-          </button>
+                <button type="button" className="button" onClick={this.showLibrary}>
+                  Show Library
+                </button>
+              </div>
+            </footer>
+          </div>
 
-          <button type="button" className="button" onClick={this.showLibrary}>
-            Show Library
-          </button>
+          <div className="container__pane padded-card flex-card">
+            <div className="flex-card__item flex-card with-background with-border">
+              <label className="name-entry" htmlFor="name">
+                <span className="name-entry__label">
+                  My emoji is called&hellip;
+              </span>
+
+                <input className="name-entry__field" type="text" name="name" value={name} onChange={this.onChangeName} />
+              </label>
+
+              <Editor onUpdate={this.updateCommands} errors={allErrors} className="flex-card__item" />
+            </div>
+          </div>
         </div>
 
         <Modal isOpen={showLibrary}>
@@ -89,7 +107,7 @@ class App extends Component {
             </button>
           </div>
         </Modal>
-      </div>
+      </div >
     )
   }
 }
