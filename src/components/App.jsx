@@ -12,6 +12,14 @@ import postEmojiToServer from '../utils/postEmojiToServer'
 
 import functionLibrary from '../library'
 
+const EXAMPLE_CODE = `face(50, 50, 90%)
+eye(35, 40)
+eyeWinking(65, 40)
+mouthBlowing(50, 65)
+heart(70, 65)
+sparkle(12, 25)
+`
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -21,6 +29,7 @@ class App extends Component {
       commands: [],
       errors: [],
       showLibrary: false,
+      textCommands: EXAMPLE_CODE,
     }
 
     this.canvasRef = React.createRef()
@@ -29,6 +38,7 @@ class App extends Component {
     this.onEmojiSubmit = this.onEmojiSubmit.bind(this)
     this.updateCommands = this.updateCommands.bind(this)
     this.showLibrary = this.showLibrary.bind(this)
+    this.insertEditorCommand = this.insertEditorCommand.bind(this)
   }
 
   async onEmojiSubmit() {
@@ -47,6 +57,7 @@ class App extends Component {
   }
 
   updateCommands(text) {
+    this.setState({ textCommands: text })
     this.setState(evaluate(text))
   }
 
@@ -54,8 +65,16 @@ class App extends Component {
     this.setState(({ showLibrary }) => ({ showLibrary: !showLibrary }))
   }
 
+  insertEditorCommand(command) {
+    this.showLibrary()
+    const commandToInsert = `${command}()`
+    const { textCommands } = this.state
+    const newCommands = `${textCommands}${commandToInsert}`
+    this.updateCommands(newCommands)
+  }
+
   render() {
-    const { commands, errors, showLibrary, name } = this.state
+    const { commands, errors, showLibrary, name, textCommands } = this.state
     const { components, errors: cmdErrors } = mapFuncs(commands, functionLibrary)
     const allErrors = [...errors, ...cmdErrors]
 
@@ -100,6 +119,7 @@ class App extends Component {
                 onUpdate={this.updateCommands}
                 errors={allErrors}
                 className="flex-card__item"
+                textCommands={textCommands}
               />
             </div>
           </div>
@@ -107,7 +127,7 @@ class App extends Component {
 
         <Modal isOpen={showLibrary}>
           <div className="modal flex-card flex-card--align-center">
-            <Library />
+            <Library onSelectCommand={this.insertEditorCommand} />
             <button type="button" className="button" onClick={this.showLibrary}>
               Hide Library
             </button>
