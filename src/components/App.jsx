@@ -114,8 +114,12 @@ class App extends Component {
         <Modal isOpen={showLibrary}>
           <div className="modal flex-card flex-card--align-center">
             <Library />
-            <button type="button" className="button" onClick={this.showLibrary}>
-              Hide Library
+            <button
+              type="button"
+              className="button library-close-button"
+              onClick={this.showLibrary}
+            >
+              X
             </button>
           </div>
         </Modal>
