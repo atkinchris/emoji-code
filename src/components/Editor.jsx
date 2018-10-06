@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import AceEditor from 'react-ace'
 
+import { loadCode, saveCode } from '../utils/localStorage'
+
 import 'brace/mode/css'
 import 'brace/theme/textmate'
 
@@ -18,7 +20,7 @@ class Editor extends Component {
     super(props)
 
     this.state = {
-      value: EXAMPLE_CODE,
+      value: loadCode() || EXAMPLE_CODE,
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -30,7 +32,7 @@ class Editor extends Component {
   }
 
   handleChange(value) {
-    this.setState({ value })
+    this.setState({ value }, () => saveCode(value))
     this.handleUpdate()
   }
 
