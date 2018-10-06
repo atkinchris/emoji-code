@@ -158,7 +158,7 @@ body:before {
 
 .logo__text {
   margin: 0;
-  color: #ED217C; 
+  color: #ed217c;
   font-size: 5vw;
 }
 
@@ -202,6 +202,17 @@ body:before {
   width: 100px;
 }
 
+.library-close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  width: 3rem;
+  text-align: center;
+  padding: 0;
+  height: 3rem;
+}
+
 .align-center {
   text-align: center;
 }
@@ -221,7 +232,7 @@ body:before {
 
 .name-entry__field {
   font: inherit;
-  color: #ED217C;
+  color: #ed217c;
   border: none;
   font-size: 2em;
   line-height: 1;
