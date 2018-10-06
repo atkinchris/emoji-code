@@ -10,6 +10,7 @@ import mapFuncs from '../utils/mapFuncs'
 import getSvgBlob from '../utils/getSvgBlob'
 import postEmojiToServer from '../utils/postEmojiToServer'
 import saveSvg from '../utils/saveSvg'
+import { loadCode, saveCode } from '../utils/localStorage'
 
 import functionLibrary from '../library'
 
@@ -30,7 +31,7 @@ class App extends Component {
       commands: [],
       errors: [],
       showLibrary: false,
-      textCommands: EXAMPLE_CODE,
+      textCommands: loadCode() || EXAMPLE_CODE,
     }
 
     this.canvasRef = React.createRef()
@@ -63,7 +64,7 @@ class App extends Component {
   }
 
   updateCommands(text) {
-    this.setState({ textCommands: text })
+    this.setState({ textCommands: text }, () => saveCode(text))
     this.setState(evaluate(text))
   }
 
