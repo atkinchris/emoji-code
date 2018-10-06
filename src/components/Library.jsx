@@ -2,8 +2,6 @@ import React, { Fragment } from 'react'
 
 import { categoryList } from '../library'
 
-console.log(categoryList)
-
 const Library = () => (
   <div className="library">
     <table>
@@ -16,31 +14,31 @@ const Library = () => (
       </thead>
 
       <tbody>
-        {categoryList
-          .filter((category) => category.name !== "Secret")
-          .map((category) => (
-            <Fragment>
-              <tr>
-                <td><h2>{category.name}</h2></td>
-              </tr>
+        {categoryList.filter(category => category.name !== 'Secret').map(category => (
+          <Fragment>
+            <tr>
+              <td>
+                <h2>{category.name}</h2>
+              </td>
+            </tr>
 
-              {category.commands.map(({ command, args = [], fn, previewStyle, previewViewBox }) => (
-                <tr className="align-center" key={command}>
-                  <td>
-                    <pre>{command}</pre>
-                  </td>
-                  <td>
-                    <pre>{args.join(', ')}</pre>
-                  </td>
-                  <td>
-                    <svg className="library__preview" style={previewStyle} viewBox={previewViewBox}>
-                      {fn()}
-                    </svg>
-                  </td>
-                </tr>
-              ))}
-            </Fragment>
-          ))}
+            {category.commands.map(({ command, args = [], fn, previewStyle, previewViewBox }) => (
+              <tr className="align-center" key={command}>
+                <td>
+                  <pre>{command}</pre>
+                </td>
+                <td>
+                  <pre>{args.join(', ')}</pre>
+                </td>
+                <td>
+                  <svg className="library__preview" style={previewStyle} viewBox={previewViewBox}>
+                    {fn()}
+                  </svg>
+                </td>
+              </tr>
+            ))}
+          </Fragment>
+        ))}
       </tbody>
     </table>
   </div>

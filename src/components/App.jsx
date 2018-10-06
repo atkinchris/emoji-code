@@ -9,6 +9,7 @@ import evaluate from '../utils/evaluate'
 import mapFuncs from '../utils/mapFuncs'
 import getSvgBlob from '../utils/getSvgBlob'
 import postEmojiToServer from '../utils/postEmojiToServer'
+import saveSvg from '../utils/saveSvg'
 
 import functionLibrary from '../library'
 
@@ -35,7 +36,12 @@ class App extends Component {
     const { name } = this.state
     const blob = await getSvgBlob(this.canvasRef.current)
 
-    await postEmojiToServer(name, blob)
+    try {
+      await postEmojiToServer(name, blob)
+    } catch (e) {
+      console.error(e)
+      await saveSvg(name, this.canvasRef.current)
+    }
   }
 
   onChangeName(e) {
