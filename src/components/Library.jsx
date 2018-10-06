@@ -18,8 +18,8 @@ const Library = (props) => {
 
         <tbody>
           {categoryList
-            .filter((category) => category.name !== "Secret")
-            .map((category) => (
+            .filter(category => category.name !== 'Secret')
+            .map(category => (
               <Fragment>
                 <tr>
                   <td><h2>{category.name}</h2></td>

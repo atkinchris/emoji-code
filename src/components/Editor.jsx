@@ -2,8 +2,18 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import AceEditor from 'react-ace'
 
+import { loadCode, saveCode } from '../utils/localStorage'
+
 import 'brace/mode/css'
 import 'brace/theme/textmate'
+
+const EXAMPLE_CODE = `face(50, 50, 90%)
+eye(35, 40)
+eyeWinking(65, 40)
+mouthBlowing(50, 65)
+heart(70, 65)
+sparkle(12, 25)
+`
 
 class Editor extends Component {
   constructor(props) {

@@ -9,6 +9,7 @@ import evaluate from '../utils/evaluate'
 import mapFuncs from '../utils/mapFuncs'
 import getSvgBlob from '../utils/getSvgBlob'
 import postEmojiToServer from '../utils/postEmojiToServer'
+import saveSvg from '../utils/saveSvg'
 
 import functionLibrary from '../library'
 
@@ -45,7 +46,12 @@ class App extends Component {
     const { name } = this.state
     const blob = await getSvgBlob(this.canvasRef.current)
 
-    await postEmojiToServer(name, blob)
+    try {
+      await postEmojiToServer(name, blob)
+    } catch (e) {
+      console.error(e)
+      await saveSvg(name, this.canvasRef.current)
+    }
   }
 
   onChangeName(e) {
@@ -128,8 +134,12 @@ class App extends Component {
         <Modal isOpen={showLibrary}>
           <div className="modal flex-card flex-card--align-center">
             <Library onSelectCommand={this.insertEditorCommand} />
-            <button type="button" className="button" onClick={this.showLibrary}>
-              Hide Library
+            <button
+              type="button"
+              className="button library-close-button"
+              onClick={this.showLibrary}
+            >
+              X
             </button>
           </div>
         </Modal>
