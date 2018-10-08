@@ -184,6 +184,10 @@ body:before {
   background-color: #6900ff;
 }
 
+.button + .button {
+  margin-left: 0.5rem;
+}
+
 .library {
   background: white;
   overflow-y: scroll;
