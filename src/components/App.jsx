@@ -76,7 +76,7 @@ class App extends Component {
     this.showLibrary()
     const commandToInsert = `${command}()`
     const { textCommands } = this.state
-    const newCommands = `${textCommands}${commandToInsert}`
+    const newCommands = `${textCommands}\n${commandToInsert}`
     this.updateCommands(newCommands)
   }
 
@@ -98,11 +98,11 @@ class App extends Component {
 
               <div className="container__pane flex-card flex-card--row">
                 <button type="button" className="button with-border" onClick={this.onEmojiSubmit}>
-                  Save Emoji
+                  Save My Emoji!
                 </button>
 
                 <button type="button" className="button" onClick={this.showLibrary}>
-                  Show Library
+                  The Emoji Library!
                 </button>
               </div>
             </footer>
@@ -134,6 +134,8 @@ class App extends Component {
 
         <Modal isOpen={showLibrary}>
           <div className="modal flex-card flex-card--align-center">
+            <h1 className="modal__title">The Emoji Library!</h1>
+
             <Library onSelectCommand={this.insertEditorCommand} />
             <button
               type="button"
