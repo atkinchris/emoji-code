@@ -6,6 +6,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const merge = require('webpack-merge')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 const paths = {
   SRC: path.resolve(__dirname, 'src'),
@@ -71,6 +72,22 @@ const production = {
   mode: 'production',
   plugins: [
     new CleanWebpackPlugin([paths.DEST]),
+    new FaviconsWebpackPlugin({
+      logo: path.resolve(paths.SRC, 'favicon.png'),
+      persistentCache: false,
+      icons: {
+        android: false,
+        appleIcon: false,
+        appleStartup: false,
+        coast: false,
+        favicons: true,
+        firefox: false,
+        opengraph: false,
+        twitter: false,
+        yandex: false,
+        windows: false,
+      },
+    }),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production'),
