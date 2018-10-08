@@ -74,11 +74,11 @@ import withWrapper from './withWrapper'
 const library = {
   bearEar: withWrapper(bearEar, "Ears"),
   bearMouth: withWrapper(bearMouth, "Mouths"),
-  blush: withWrapper(blush, "Face"),
+  blush: withWrapper(blush, "Accessories"),
   catEar: withWrapper(catEar, "Ears"),
   catEyeLeft: withWrapper(catEyeLeft, "Eyes"),
   catEyeRight: withWrapper(catEyeRight, "Eyes"),
-  catMouth: withWrapper(catMouth, "Mouth"),
+  catMouth: withWrapper(catMouth, "Mouths"),
   chickenBeak: withWrapper(chickenBeak, "Secret"),
   chickenComb: withWrapper(chickenComb, "Secret"),
   chickenEye: withWrapper(chickenEye, "Secret"),
@@ -86,7 +86,7 @@ const library = {
   chipmunk: withWrapper(chipmunk, "Friends"),
   circle: withWrapper(circle, "Shapes"),
   cross: withWrapper(cross, "Shapes"),
-  dollar: withWrapper(dollar, "Shapes"),
+  dollar: withWrapper(dollar, "Accessories"),
   eye: withWrapper(eye, "Eyes"),
   eyeCalm: withWrapper(eyeCalm, "Eyes"),
   eyeCheeky: withWrapper(eyeCheeky, "Eyes"),
@@ -106,8 +106,8 @@ const library = {
   handHuggingRight: withWrapper(handHuggingRight, "Hands"),
   handThinking: withWrapper(handThinking, "Hands"),
   heart: withWrapper(heart, "Shapes"),
-  huff: withWrapper(huff, "Shapes"),
-  hundred: withWrapper(hundred, "Shapes"),
+  huff: withWrapper(huff, "Accessories"),
+  hundred: withWrapper(hundred, "Accessories"),
   moonDark: withWrapper(moonDark, "Face"),
   moonLight: withWrapper(moonLight, "Face"),
   mouth: withWrapper(mouth, "Mouths"),
@@ -127,20 +127,51 @@ const library = {
   mouthYawning: withWrapper(mouthYawning, "Mouths"),
   poop: withWrapper(poop, "Secret"),
   pug: withWrapper(pug, "Friends"),
-  pumpkin: withWrapper(pumpkin, "Faces"),
+  pumpkin: withWrapper(pumpkin, "Face"),
   semiCircle: withWrapper(semiCircle, "Shapes"),
-  snout: withWrapper(snout, "Noses"),
+  snout: withWrapper(snout, "Accessories"),
   sparkle: withWrapper(sparkle, "Shapes"),
   sunglasses: withWrapper(sunglasses, "Eyes"),
-  tada: withWrapper(tada, "Shapes"),
+  tada: withWrapper(tada, "Accessories"),
   tear: withWrapper(tear, "Shapes"),
   tongue: withWrapper(tongue, "Mouths"),
   triangle: withWrapper(triangle, "Shapes"),
   unicorn: withWrapper(unicorn, "Friends"),
-  unicornHorn: withWrapper(unicornHorn, "Shapes"),
-  z: withWrapper(z, "Shapes"),
-  zipper: withWrapper(zipper, "Mouths"),
+  unicornHorn: withWrapper(unicornHorn, "Accessories"),
+  z: withWrapper(z, "Accessories"),
+  zipper: withWrapper(zipper, "Accessories"),
   rectangle,
+}
+
+const sortingOrder = [
+  "Shapes",
+  "Face",
+  "Eyes",
+  "Mouths",
+]
+
+const compareCategories = (
+  { name: a },
+  { name: b },
+) => {
+  const aOrder = sortingOrder.indexOf(a)
+  const aHasOrder = aOrder !== -1
+  const bOrder = sortingOrder.indexOf(b)
+  const bHasOrder = bOrder !== -1
+
+  if (aHasOrder && !bHasOrder) {
+    return -1
+  }
+
+  if (!aHasOrder && bHasOrder) {
+    return 1
+  }
+
+  if (aHasOrder && bHasOrder) {
+    return aOrder - bOrder
+  }
+
+  return a.localeCompare(b)
 }
 
 const categories = Object.keys(library)
@@ -173,9 +204,8 @@ const categories = Object.keys(library)
   )
 
 const categoryList = Object.keys(categories)
-  .map(
-    (categoryName) => categories[categoryName]
-  )
+  .map((categoryName) => categories[categoryName])
+  .sort(compareCategories)
 
 export { categories, categoryList }
 
