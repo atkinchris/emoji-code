@@ -160,8 +160,8 @@ body:before {
 .controls {
   pointer-events: none;
   margin: -2.5em auto 0;
-  transform: rotate(-12deg) translateY(0) translateX(1em);
-  font-size: 2vw;
+  transform: rotate(-12deg) translateY(0) translateX(0.5em);
+  font-size: 1.8vw;
 }
 
 .controls .button {
