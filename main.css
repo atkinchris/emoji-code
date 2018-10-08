@@ -194,6 +194,12 @@ body:before {
   font-size: 1em;
   padding: 0.25em 1em;
   border: none;
+  opacity: 1;
+  transition: 0.3s ease-in-out all;
+}
+
+.button[disabled] {
+  opacity: 0.2;
 }
 
 .button:hover,
