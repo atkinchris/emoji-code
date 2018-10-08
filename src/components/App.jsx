@@ -18,8 +18,7 @@ const EXAMPLE_CODE = `face(50, 50, 90%)
 eye(35, 40)
 eyeWinking(65, 40)
 mouthBlowing(50, 65)
-heart(70, 65)
-sparkle(12, 25)
+heart(70, 65, 100%, 0, red)
 `
 
 class App extends Component {
@@ -47,12 +46,20 @@ class App extends Component {
     const { name } = this.state
     const blob = await getSvgBlob(this.canvasRef.current)
 
+    this.setState({
+      submitting: true,
+    })
+
     try {
       await postEmojiToServer(name, blob)
     } catch (e) {
       console.error(e)
       await saveSvg(name, this.canvasRef.current)
     }
+
+    this.setState({
+      submitting: false,
+    })
   }
 
   onChangeName(e) {
@@ -81,7 +88,7 @@ class App extends Component {
   }
 
   render() {
-    const { commands, errors, showLibrary, name, textCommands } = this.state
+    const { commands, errors, showLibrary, name, textCommands, submitting } = this.state
     const { components, errors: cmdErrors } = mapFuncs(commands, functionLibrary)
     const allErrors = [...errors, ...cmdErrors]
 
@@ -97,11 +104,11 @@ class App extends Component {
               </div>
 
               <div className="container__pane flex-card flex-card--row">
-                <button type="button" className="button with-border" onClick={this.onEmojiSubmit}>
+                <button type="button" className="button with-border" onClick={this.onEmojiSubmit} disabled={submitting}>
                   Save Emoji!
                 </button>
 
-                <button type="button" className="button" onClick={this.showLibrary}>
+                <button type="button" className="button" onClick={this.showLibrary} disabled={submitting}>
                   Emoji Library!
                 </button>
               </div>
