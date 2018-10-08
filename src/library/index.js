@@ -57,6 +57,8 @@ import pumpkin from './svgs/pumpkin.svg'
 import semiCircle from './svgs/semiCircle.svg'
 import snout from './svgs/snout.svg'
 import sparkle from './svgs/sparkle.svg'
+import square from './svgs/square.svg'
+import star from './svgs/star.svg'
 import sunglasses from './svgs/sunglasses.svg'
 import tada from './svgs/tada.svg'
 import tear from './svgs/tear.svg'
@@ -72,88 +74,82 @@ import rectangle from './rectangle'
 import withWrapper from './withWrapper'
 
 const library = {
-  bearEar: withWrapper(bearEar, "Ears"),
-  bearMouth: withWrapper(bearMouth, "Mouths"),
-  blush: withWrapper(blush, "Accessories"),
-  catEar: withWrapper(catEar, "Ears"),
-  catEyeLeft: withWrapper(catEyeLeft, "Eyes"),
-  catEyeRight: withWrapper(catEyeRight, "Eyes"),
-  catMouth: withWrapper(catMouth, "Mouths"),
-  chickenBeak: withWrapper(chickenBeak, "Secret"),
-  chickenComb: withWrapper(chickenComb, "Secret"),
-  chickenEye: withWrapper(chickenEye, "Secret"),
-  chickenHead: withWrapper(chickenHead, "Secret"),
-  chipmunk: withWrapper(chipmunk, "Friends"),
-  circle: withWrapper(circle, "Shapes"),
-  cross: withWrapper(cross, "Shapes"),
-  dollar: withWrapper(dollar, "Accessories"),
-  eye: withWrapper(eye, "Eyes"),
-  eyeCalm: withWrapper(eyeCalm, "Eyes"),
-  eyeCheeky: withWrapper(eyeCheeky, "Eyes"),
-  eyeCryingLeft: withWrapper(eyeCryingLeft, "Eyes"),
-  eyeCryingRight: withWrapper(eyeCryingRight, "Eyes"),
-  eyeLaughingLeft: withWrapper(eyeLaughingLeft, "Eyes"),
-  eyeLaughingRight: withWrapper(eyeLaughingRight, "Eyes"),
-  eyeOpen: withWrapper(eyeOpen, "Eyes"),
-  eyeRolling: withWrapper(eyeRolling, "Eyes"),
-  eyeSparkle: withWrapper(eyeSparkle, "Eyes"),
-  eyeThinking: withWrapper(eyeThinking, "Eyes"),
-  eyeWinking: withWrapper(eyeWinking, "Eyes"),
-  face: withWrapper(face, "Face"),
-  fangs: withWrapper(fangs, "Mouths"),
-  glasses: withWrapper(glasses, "Eyes"),
-  handHuggingLeft: withWrapper(handHuggingLeft, "Hands"),
-  handHuggingRight: withWrapper(handHuggingRight, "Hands"),
-  handThinking: withWrapper(handThinking, "Hands"),
-  heart: withWrapper(heart, "Shapes"),
-  huff: withWrapper(huff, "Accessories"),
-  hundred: withWrapper(hundred, "Accessories"),
-  moonDark: withWrapper(moonDark, "Face"),
-  moonLight: withWrapper(moonLight, "Face"),
-  mouth: withWrapper(mouth, "Mouths"),
-  mouthBlowing: withWrapper(mouthBlowing, "Mouths"),
-  mouthConfused: withWrapper(mouthConfused, "Mouths"),
-  mouthDrool: withWrapper(mouthDrool, "Mouths"),
-  mouthFrowning: withWrapper(mouthFrowning, "Mouths"),
-  mouthGrinning: withWrapper(mouthGrinning, "Mouths"),
-  mouthHalfSmile: withWrapper(mouthHalfSmile, "Mouths"),
-  mouthLaughing: withWrapper(mouthLaughing, "Mouths"),
-  mouthMoney: withWrapper(mouthMoney, "Mouths"),
-  mouthNeutral: withWrapper(mouthNeutral, "Mouths"),
-  mouthShocked: withWrapper(mouthShocked, "Mouths"),
-  mouthSick: withWrapper(mouthSick, "Mouths"),
-  mouthSmiling: withWrapper(mouthSmiling, "Mouths"),
-  mouthTongue: withWrapper(mouthTongue, "Mouths"),
-  mouthYawning: withWrapper(mouthYawning, "Mouths"),
-  poop: withWrapper(poop, "Secret"),
-  pug: withWrapper(pug, "Friends"),
-  pumpkin: withWrapper(pumpkin, "Face"),
-  semiCircle: withWrapper(semiCircle, "Shapes"),
-  snout: withWrapper(snout, "Accessories"),
-  sparkle: withWrapper(sparkle, "Shapes"),
-  sunglasses: withWrapper(sunglasses, "Eyes"),
-  tada: withWrapper(tada, "Accessories"),
-  tear: withWrapper(tear, "Shapes"),
-  tongue: withWrapper(tongue, "Mouths"),
-  triangle: withWrapper(triangle, "Shapes"),
-  unicorn: withWrapper(unicorn, "Friends"),
-  unicornHorn: withWrapper(unicornHorn, "Accessories"),
-  z: withWrapper(z, "Accessories"),
-  zipper: withWrapper(zipper, "Accessories"),
+  bearEar: withWrapper(bearEar, 'Ears'),
+  bearMouth: withWrapper(bearMouth, 'Mouths'),
+  blush: withWrapper(blush, 'Accessories'),
+  catEar: withWrapper(catEar, 'Ears'),
+  catEyeLeft: withWrapper(catEyeLeft, 'Eyes'),
+  catEyeRight: withWrapper(catEyeRight, 'Eyes'),
+  catMouth: withWrapper(catMouth, 'Mouths'),
+  chickenBeak: withWrapper(chickenBeak, 'Secret'),
+  chickenComb: withWrapper(chickenComb, 'Secret'),
+  chickenEye: withWrapper(chickenEye, 'Secret'),
+  chickenHead: withWrapper(chickenHead, 'Secret'),
+  chipmunk: withWrapper(chipmunk, 'Friends'),
+  circle: withWrapper(circle, 'Shapes'),
+  cross: withWrapper(cross, 'Shapes'),
+  dollar: withWrapper(dollar, 'Accessories'),
+  eye: withWrapper(eye, 'Eyes'),
+  eyeCalm: withWrapper(eyeCalm, 'Eyes'),
+  eyeCheeky: withWrapper(eyeCheeky, 'Eyes'),
+  eyeCryingLeft: withWrapper(eyeCryingLeft, 'Eyes'),
+  eyeCryingRight: withWrapper(eyeCryingRight, 'Eyes'),
+  eyeLaughingLeft: withWrapper(eyeLaughingLeft, 'Eyes'),
+  eyeLaughingRight: withWrapper(eyeLaughingRight, 'Eyes'),
+  eyeOpen: withWrapper(eyeOpen, 'Eyes'),
+  eyeRolling: withWrapper(eyeRolling, 'Eyes'),
+  eyeSparkle: withWrapper(eyeSparkle, 'Eyes'),
+  eyeThinking: withWrapper(eyeThinking, 'Eyes'),
+  eyeWinking: withWrapper(eyeWinking, 'Eyes'),
+  face: withWrapper(face, 'Face'),
+  fangs: withWrapper(fangs, 'Mouths'),
+  glasses: withWrapper(glasses, 'Eyes'),
+  handHuggingLeft: withWrapper(handHuggingLeft, 'Hands'),
+  handHuggingRight: withWrapper(handHuggingRight, 'Hands'),
+  handThinking: withWrapper(handThinking, 'Hands'),
+  heart: withWrapper(heart, 'Shapes'),
+  huff: withWrapper(huff, 'Accessories'),
+  hundred: withWrapper(hundred, 'Accessories'),
+  moonDark: withWrapper(moonDark, 'Face'),
+  moonLight: withWrapper(moonLight, 'Face'),
+  mouth: withWrapper(mouth, 'Mouths'),
+  mouthBlowing: withWrapper(mouthBlowing, 'Mouths'),
+  mouthConfused: withWrapper(mouthConfused, 'Mouths'),
+  mouthDrool: withWrapper(mouthDrool, 'Mouths'),
+  mouthFrowning: withWrapper(mouthFrowning, 'Mouths'),
+  mouthGrinning: withWrapper(mouthGrinning, 'Mouths'),
+  mouthHalfSmile: withWrapper(mouthHalfSmile, 'Mouths'),
+  mouthLaughing: withWrapper(mouthLaughing, 'Mouths'),
+  mouthMoney: withWrapper(mouthMoney, 'Mouths'),
+  mouthNeutral: withWrapper(mouthNeutral, 'Mouths'),
+  mouthShocked: withWrapper(mouthShocked, 'Mouths'),
+  mouthSick: withWrapper(mouthSick, 'Mouths'),
+  mouthSmiling: withWrapper(mouthSmiling, 'Mouths'),
+  mouthTongue: withWrapper(mouthTongue, 'Mouths'),
+  mouthYawning: withWrapper(mouthYawning, 'Mouths'),
+  poop: withWrapper(poop, 'Secret'),
+  pug: withWrapper(pug, 'Friends'),
+  pumpkin: withWrapper(pumpkin, 'Face'),
+  semiCircle: withWrapper(semiCircle, 'Shapes'),
+  snout: withWrapper(snout, 'Accessories'),
+  sparkle: withWrapper(sparkle, 'Shapes'),
+  square: withWrapper(square, 'Shapes'),
+  star: withWrapper(star, 'Shapes'),
+  sunglasses: withWrapper(sunglasses, 'Eyes'),
+  tada: withWrapper(tada, 'Accessories'),
+  tear: withWrapper(tear, 'Shapes'),
+  tongue: withWrapper(tongue, 'Mouths'),
+  triangle: withWrapper(triangle, 'Shapes'),
+  unicorn: withWrapper(unicorn, 'Friends'),
+  unicornHorn: withWrapper(unicornHorn, 'Accessories'),
+  z: withWrapper(z, 'Accessories'),
+  zipper: withWrapper(zipper, 'Accessories'),
   rectangle,
 }
 
-const sortingOrder = [
-  "Shapes",
-  "Face",
-  "Eyes",
-  "Mouths",
-]
+const sortingOrder = ['Shapes', 'Face', 'Eyes', 'Mouths']
 
-const compareCategories = (
-  { name: a },
-  { name: b },
-) => {
+const compareCategories = ({ name: a }, { name: b }) => {
   const aOrder = sortingOrder.indexOf(a)
   const aHasOrder = aOrder !== -1
   const bOrder = sortingOrder.indexOf(b)
@@ -175,36 +171,29 @@ const compareCategories = (
 }
 
 const categories = Object.keys(library)
-  .map(
-    (command) => ({
-      command,
-      args: library[command].args,
-      fn: library[command],
-      previewStyle: library[command].previewStyle,
-      previewViewBox: library[command].previewViewBox,
-      category: library[command].category,
-    })
-  )
-  .reduce(
-    (allCategories, command) => {
-      const name = command.category
-      const currentCategory = allCategories[name] || { name, commands: [] }
+  .map(command => ({
+    command,
+    args: library[command].args,
+    fn: library[command],
+    previewStyle: library[command].previewStyle,
+    previewViewBox: library[command].previewViewBox,
+    category: library[command].category,
+  }))
+  .reduce((allCategories, command) => {
+    const name = command.category
+    const currentCategory = allCategories[name] || { name, commands: [] }
 
-      return {
-        ...allCategories,
-        [name]: {
-          ...currentCategory,
-          commands: [
-            ...currentCategory.commands,
-            command,
-          ],
-        }
-      }
-    }, {}
-  )
+    return {
+      ...allCategories,
+      [name]: {
+        ...currentCategory,
+        commands: [...currentCategory.commands, command],
+      },
+    }
+  }, {})
 
 const categoryList = Object.keys(categories)
-  .map((categoryName) => categories[categoryName])
+  .map(categoryName => categories[categoryName])
   .sort(compareCategories)
 
 export { categories, categoryList }
