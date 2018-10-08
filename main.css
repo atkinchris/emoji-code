@@ -4,6 +4,16 @@ html {
   height: 100%;
 }
 
+strong {
+  font-family: 'Fredoka One', sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Fredoka One', sans-serif;
+  color: #ed217c;
+  margin: 1.5rem auto;
+}
+
 *,
 *:before,
 *:after {
@@ -48,6 +58,14 @@ body:before {
   width: 100%;
   z-index: 5;
   padding: 4rem;
+}
+
+.modal__title {
+  font-family: 'Fredoka One', sans-serif;
+  text-align: center;
+  margin: -2rem 0 0.25em;
+  color: #ed217c;
+  font-size: 5vw;
 }
 
 .container {
@@ -192,16 +210,18 @@ body:before {
   background: white;
   overflow-y: scroll;
   overflow-x: hidden;
-  padding: 2rem 4rem;
+  padding: 0 2rem;
+  font-size: 1.2em;
 }
 
-.library td {
-  padding-left: 2rem;
-  padding-right: 2rem;
+.library__code {
+  background: #fff9e3;
+  color: #ed217c;
+  padding: 0.1em 1em;
 }
 
 .library__preview {
-  background: #fff9e3;
+  display: block;
   height: 100px;
   width: 100px;
 }
@@ -215,6 +235,46 @@ body:before {
   text-align: center;
   padding: 0;
   height: 3rem;
+}
+
+.library__guidance {
+  color: #664e27;
+}
+
+.library__guidance strong {
+  color: #9951ff;
+}
+
+.library-category {
+  position: relative;
+}
+
+.library-category__title {
+  position: sticky;
+  top: 0;
+  background: white;
+  margin: 0;
+  padding: 0.5rem 0;
+  margin: 1rem 0 7.65rem;
+  color: #9951ff;
+}
+
+.library-category__commands {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: -6.65rem -1em 0 0;
+}
+
+.library-commands__command {
+  appearance: none;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  background: #fff9e3;
+  margin: 0 1em 1em 0;
+  color: #664e27;
 }
 
 .align-center {
@@ -257,5 +317,39 @@ body:before {
   color: #9951ff !important;
 }
 
+
+@media print {
+  #root {
+    display: none;
+  }
+
+  .modal {
+    position: static;
+  }
+
+  .library {
+    padding: 0;
+    overflow-y: visible;
+  }
+
+  .library__code {
+    padding: 0;
+  }
+
+  .library-close-button {
+    display: none;
+  }
+
+  /* hardcoding page breaks is bad and brittle */
+  /* do not look at this accursed code */
+  .library__guidance {
+    page-break-after: always;
+  }
+
+  .library-category:nth-child(3),
+  .library-category:nth-child(5) {
+    page-break-after: always;
+  }
+}
 
 /*# sourceMappingURL=main.css.map*/
