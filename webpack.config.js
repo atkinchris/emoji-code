@@ -32,6 +32,10 @@ const common = {
         use: 'babel-loader',
       },
       {
+        test: /\.(eot|ttf|woff|woff2)$/i,
+        loader: `file-loader?name=[name].[ext]`,
+      },
+      {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
