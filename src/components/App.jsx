@@ -104,11 +104,21 @@ class App extends Component {
               </div>
 
               <div className="container__pane flex-card flex-card--row">
-                <button type="button" className="button with-border" onClick={this.onEmojiSubmit} disabled={submitting}>
+                <button
+                  type="button"
+                  className="button with-border"
+                  onClick={this.onEmojiSubmit}
+                  disabled={submitting}
+                >
                   Save Emoji!
                 </button>
 
-                <button type="button" className="button" onClick={this.showLibrary} disabled={submitting}>
+                <button
+                  type="button"
+                  className="button"
+                  onClick={this.showLibrary}
+                  disabled={submitting}
+                >
                   Emoji Library!
                 </button>
               </div>
