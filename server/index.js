@@ -6,7 +6,7 @@ const uniquefilename = require('uniquefilename')
 const sanitizefilename = require('sanitize-filename')
 
 const app = express()
-const LISTEN_PORT = 8080
+const LISTEN_PORT = 80
 
 const EMOJI_DIRECTORY = path.join(__dirname, '..', 'emoji')
 const ASSETS_PATH = path.join(__dirname, '..', 'dist')
