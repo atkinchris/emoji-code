@@ -81,7 +81,7 @@ class App extends Component {
 
   insertEditorCommand(command) {
     this.showLibrary()
-    const commandToInsert = `${command}()`
+    const commandToInsert = `${command}(50, 50, 100%, 0)`
     const { textCommands } = this.state
     const newCommands = `${textCommands}\n${commandToInsert}`
     this.updateCommands(newCommands)
