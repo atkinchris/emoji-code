@@ -58,5 +58,8 @@
     "save-svg-as-png": "^1.4.6",
     "uniquefilename": "^1.1.2",
     "whatwg-fetch": "^3.0.0"
+  },
+  "jest": {
+    "testURL": "http://localhost:8080"
   }
 }

@@ -1,4 +1,4 @@
-import { hashToEmoji, emojiToHash } from '../encode'
+import { hashToEmoji, emojiToHash, generateShareUrl } from '../encode'
 
 
 describe('hashToEmoji', () => {
@@ -14,5 +14,15 @@ describe('emojiToHash', () => {
     const emoji = { name: 'test', textCommands: 'circle()' }
     const code = 'eyJuYW1lIjoidGVzdCIsInRleHRDb21tYW5kcyI6ImNpcmNsZSgpIn0='
     expect(emojiToHash(emoji)).toEqual(code)
+  })
+})
+
+describe('generateShareUrl', () => {
+  it('creates a share URL for an emoji based off the current URL', () => {
+    const url = 'http://localhost:8080#emoji=eyJuYW1lIjoidGVzdCIsInRleHRDb21tYW5kcyI6ImNpcmNsZSgpIn0%3D'
+    expect(generateShareUrl({
+      name: 'test',
+      textCommands: 'circle()',
+    })).toBe(url)
   })
 })

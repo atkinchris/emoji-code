@@ -9,7 +9,13 @@ const emojiToHash = ({ name, textCommands }) => {
   }))
 }
 
+const generateShareUrl = (emoji) => {
+  const hash = encodeURIComponent(emojiToHash(emoji))
+  return `${window.location.origin}#emoji=${hash}`
+}
+
 export {
   emojiToHash,
   hashToEmoji,
+  generateShareUrl,
 }
