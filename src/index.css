@@ -220,10 +220,33 @@ body:before {
   font-size: 1.2em;
 }
 
+.share {
+  background: white;
+  padding: 0 2rem;
+  font-size: 1.2em;
+}
+
+.share__code {
+  background: #fff9e3;
+  color: #ed217c;
+  padding: 1em;
+  width: 100%;
+  font-weight: bold;
+  resize: none;
+  border: none;
+  font-size: 1em;
+}
+
+.share__preview {
+  width: 50%;
+  text-align: center;
+  margin: 1em auto;
+}
+
 .library__code {
   background: #fff9e3;
   color: #ed217c;
-  padding: 0.1em 1em;
+  padding: 0.1em em;
 }
 
 .library__preview {

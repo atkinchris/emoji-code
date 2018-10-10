@@ -4,6 +4,7 @@ import Canvas from './Canvas'
 import Editor from './Editor'
 import Library from './Library'
 import Modal from './Modal'
+import Share from './Share'
 
 import evaluate from '../utils/evaluate'
 import mapFuncs from '../utils/mapFuncs'
@@ -11,6 +12,7 @@ import getSvgBlob from '../utils/getSvgBlob'
 import postEmojiToServer from '../utils/postEmojiToServer'
 import saveSvg from '../utils/saveSvg'
 import { loadCode, saveCode } from '../utils/localStorage'
+import { generateShareUrl, decodeEmojiFromUrl } from '../utils/encode'
 
 import functionLibrary from '../library'
 
@@ -30,6 +32,7 @@ class App extends Component {
       commands: [],
       errors: [],
       showLibrary: false,
+      showShare: false,
       textCommands: loadCode() || EXAMPLE_CODE,
     }
 
@@ -39,6 +42,7 @@ class App extends Component {
     this.onEmojiSubmit = this.onEmojiSubmit.bind(this)
     this.updateCommands = this.updateCommands.bind(this)
     this.showLibrary = this.showLibrary.bind(this)
+    this.shareEmoji = this.shareEmoji.bind(this)
     this.insertEditorCommand = this.insertEditorCommand.bind(this)
   }
 
@@ -62,6 +66,8 @@ class App extends Component {
     })
   }
 
+  
+
   onChangeName(e) {
     const { value } = e.target
 
@@ -79,6 +85,10 @@ class App extends Component {
     this.setState(({ showLibrary }) => ({ showLibrary: !showLibrary }))
   }
 
+  shareEmoji() { 
+    this.setState(({ showShare }) => ({ showShare: !showShare }))
+  }
+
   insertEditorCommand(command) {
     this.showLibrary()
     const commandToInsert = `${command}()`
@@ -88,7 +98,7 @@ class App extends Component {
   }
 
   render() {
-    const { commands, errors, showLibrary, name, textCommands, submitting } = this.state
+    const { commands, errors, showLibrary, showShare, name, textCommands, submitting } = this.state
     const { components, errors: cmdErrors } = mapFuncs(commands, functionLibrary)
     const allErrors = [...errors, ...cmdErrors]
 
@@ -108,9 +118,15 @@ class App extends Component {
                   Save Emoji!
                 </button>
 
+                <button type="button" className="button" onClick={this.shareEmoji} disabled={submitting}>
+                  Share Emoji!
+                </button>
+
                 <button type="button" className="button" onClick={this.showLibrary} disabled={submitting}>
                   Emoji Library!
                 </button>
+
+                
               </div>
             </footer>
           </div>
@@ -148,6 +164,20 @@ class App extends Component {
               type="button"
               className="button library-close-button"
               onClick={this.showLibrary}
+            >
+              X
+            </button>
+          </div>
+        </Modal>
+
+        <Modal isOpen={showShare}>
+          <div className="modal flex-card flex-card--align-center">
+            <h1 className="modal__title">Share your Emoji!</h1>
+            <Share name={name} code={textCommands} components={components} />
+            <button
+              type="button"
+              className="button library-close-button"
+              onClick={this.shareEmoji}
             >
               X
             </button>
