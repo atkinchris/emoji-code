@@ -53,7 +53,7 @@ class App extends Component {
     try {
       await postEmojiToServer(name, blob)
     } catch (e) {
-      console.error(e)
+      console.error(e) // eslint-disable-line no-console
       await saveSvg(name, this.canvasRef.current)
     }
 
