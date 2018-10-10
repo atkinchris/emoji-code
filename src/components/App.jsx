@@ -57,7 +57,7 @@ class App extends Component {
     try {
       await postEmojiToServer(name, blob)
     } catch (e) {
-      console.error(e)
+      console.error(e) // eslint-disable-line no-console
       await saveSvg(name, this.canvasRef.current)
     }
 
@@ -91,7 +91,7 @@ class App extends Component {
 
   insertEditorCommand(command) {
     this.showLibrary()
-    const commandToInsert = `${command}()`
+    const commandToInsert = `${command}(50, 50, 100%, 0)`
     const { textCommands } = this.state
     const newCommands = `${textCommands}\n${commandToInsert}`
     this.updateCommands(newCommands)
@@ -114,19 +114,32 @@ class App extends Component {
               </div>
 
               <div className="container__pane flex-card flex-card--row">
-                <button type="button" className="button with-border" onClick={this.onEmojiSubmit} disabled={submitting}>
+                <button
+                  type="button"
+                  className="button with-border"
+                  onClick={this.onEmojiSubmit}
+                  disabled={submitting}
+                >
                   Save Emoji!
                 </button>
 
-                <button type="button" className="button" onClick={this.shareEmoji} disabled={submitting}>
+                <button 
+                  type="button" 
+                  className="button" 
+                  onClick={this.shareEmoji} 
+                  disabled={submitting}
+                >
                   Share Emoji!
                 </button>
 
-                <button type="button" className="button" onClick={this.showLibrary} disabled={submitting}>
+                <button
+                  type="button"
+                  className="button"
+                  onClick={this.showLibrary}
+                  disabled={submitting}
+                >
                   Emoji Library!
                 </button>
-
-                
               </div>
             </footer>
           </div>
