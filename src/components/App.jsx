@@ -125,7 +125,7 @@ class App extends Component {
             </footer>
           </div>
 
-          <div className="container__pane padded-card flex-card">
+          <div className="container__pane container__pane--grow padded-card hard-sides@sm flex-card">
             <div className="flex-card__item flex-card with-background with-border">
               <label className="name-entry" htmlFor="name">
                 <span className="name-entry__label">My emoji is called&hellip;</span>
