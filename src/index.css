@@ -93,6 +93,12 @@ body:before {
   flex: 100% 1 0;
 }
 
+@media screen and (orientation: portrait) {
+  .container__pane {
+    flex-basis: 100%;
+  }
+}
+
 .container__pane--grow {
   flex: 1;
 }
@@ -173,6 +179,8 @@ body:before {
   padding: 3rem;
   background: white;
   border-radius: 100%;
+  max-width: 30rem;
+  margin: 0 auto;
 }
 
 .controls {
