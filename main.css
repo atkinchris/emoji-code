@@ -93,8 +93,8 @@ body:before {
   flex: 100% 1 0;
 }
 
-.container__pane {
-  flex: 50% 1 0;
+.container__pane--grow {
+  flex: 1;
 }
 
 .container__item {
@@ -157,6 +157,12 @@ body:before {
   line-height: 1.5;
 }
 
+@media screen and (max-width: 600px) {
+  .editor__area.ace_editor {
+    height: 300px !important;
+  }
+}
+
 .editor__error-marker {
   position: absolute;
   background: #ff7e67;
@@ -172,8 +178,14 @@ body:before {
 .controls {
   pointer-events: none;
   margin: -2.5em auto 0;
-  transform: rotate(-12deg) translateY(0) translateX(0.5em);
-  font-size: 1.8vw;
+  transform: rotate(-12deg);
+  font-size: 1.4rem;
+}
+
+@media screen and (min-width: 600px) {
+  .controls {
+    transform: rotate(-12deg) translateY(0) translateX(0.5em);
+  }
 }
 
 .controls .button {
@@ -189,7 +201,8 @@ body:before {
 .logo__text {
   margin: 0;
   color: #ed217c;
-  font-size: 5vw;
+  font-size: 3.4rem;
+  white-space: nowrap;
 }
 
 .with-border {
@@ -333,6 +346,13 @@ body:before {
 .ace_line .ace_numeric,
 .ace_line .ace_keyword {
   color: #9951ff !important;
+}
+
+@media screen and (max-width: 600px) {
+  .hard-sides\@sm {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
 }
 
 @media print {
