@@ -320,6 +320,10 @@ body:before {
   text-align: center;
 }
 
+.svg-wrapper {
+  transform-origin: center;
+}
+
 .name-entry {
   display: block;
   background: white;

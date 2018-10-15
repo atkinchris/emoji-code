@@ -4,7 +4,7 @@ const fromPercentage = percentage => parseInt(percentage, 10) / 100
 
 const withWrapper = (Component, category) => {
   const wrapper = (id, x = 50, y = 50, scale = 100, rotate = 0, colour) => (
-    <g key={id} transform={`translate(${x}, ${y})`} style={{ transformOrigin: 'center' }}>
+    <g key={id} transform={`translate(${x}, ${y})`} className="svg-wrapper">
       {colour && (
         <defs>
           <filter id={`${id}/colour-shift`} x="0" y="0" width="100%" height="100%">
