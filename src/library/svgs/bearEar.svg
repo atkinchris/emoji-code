@@ -1,4 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-    <ellipse cx="50" cy="50" rx="8.7" ry="8.4" fill="#ffdd67"/>
+    <ellipse cx="50" cy="50" rx="8.7" ry="8.4" fill="currentColor"/>
     <ellipse cx="50" cy="50" rx="5.2" ry="5.1" fill="#e0ac7e"/>
 </svg>
