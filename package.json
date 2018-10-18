@@ -63,5 +63,8 @@
     "sanitize-filename": "^1.6.1",
     "uniquefilename": "^1.1.2",
     "whatwg-fetch": "^3.0.0"
+  },
+  "jest": {
+    "testURL": "http://localhost:8080"
   }
 }
