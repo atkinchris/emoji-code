@@ -19,9 +19,9 @@ const withWrapper = (Component, category) => {
         <g
           style={{
             transform: [
-              `rotate(${rotate}deg)`,
               `translate(50 50)`,
               `scale(${fromPercentage(scale)})`,
+              `rotate(${rotate}deg)`,
               `translate(-50 -50)`,
             ].join(' '),
             transformOrigin: 'center',
