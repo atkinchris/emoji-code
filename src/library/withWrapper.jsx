@@ -18,7 +18,12 @@ const withWrapper = (Component, category) => {
       <svg x="-50" y="-50" id={id}>
         <g
           style={{
-            transform: `rotate(${rotate}deg) scale(${fromPercentage(scale)})`,
+            transform: [
+              `rotate(${rotate}deg)`,
+              `translate(50 50)`,
+              `scale(${fromPercentage(scale)})`,
+              `translate(-50 -50)`,
+            ].join(' '),
             transformOrigin: 'center',
             filter: colour ? `url(#${id}/colour-shift)` : '',
           }}

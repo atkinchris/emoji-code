@@ -7,9 +7,9 @@ import Modal from './Modal'
 
 import evaluate from '../utils/evaluate'
 import mapFuncs from '../utils/mapFuncs'
-import getSvgBlob from '../utils/getSvgBlob'
+import getCanvasBlob from '../utils/getCanvasBlob'
 import postEmojiToServer from '../utils/postEmojiToServer'
-import saveSvg from '../utils/saveSvg'
+import saveBlob from '../utils/saveBlob'
 import { loadCode, saveCode } from '../utils/localStorage'
 
 import functionLibrary from '../library'
@@ -44,7 +44,7 @@ class App extends Component {
 
   async onEmojiSubmit() {
     const { name } = this.state
-    const blob = await getSvgBlob(this.canvasRef.current)
+    const blob = await getCanvasBlob(this.canvasRef.current)
 
     this.setState({
       submitting: true,
@@ -54,7 +54,7 @@ class App extends Component {
       await postEmojiToServer(name, blob)
     } catch (e) {
       console.error(e) // eslint-disable-line no-console
-      await saveSvg(name, this.canvasRef.current)
+      await saveBlob(name, blob)
     }
 
     this.setState({
